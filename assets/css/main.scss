@@ -95,30 +95,29 @@ a {
    Desktop layout
    ======================================== */
 
-@media (min-width: 64em) {
+/* ========================================
+   Homepage: bring content closer to sidebar
+   ======================================== */
 
-  /* Sidebar */
+@media screen and (min-width: 64em) {
+
+  /* Make the sidebar slightly wider */
   .sidebar {
-    width: 220px !important;
+    width: 260px;
   }
 
-  /*
-   * Main content:
-   * Academic Pages normally adds a large gap.
-   * These rules make the content start directly
-   * after the sidebar.
-   */
+  /* Position the main content immediately after the sidebar */
   .page {
-    float: left !important;
-    width: calc(100% - 270px) !important;
-    max-width: 1050px !important;
-    margin-left: 250px !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
+    float: left;
+    width: calc(100% - 300px);
+    margin-left: 280px;
+    padding-left: 0;
+    padding-right: 2em;
   }
 
+  /* Remove the extra spacing inherited from the theme */
   .page__inner-wrap {
-    max-width: 100% !important;
-    margin-left: 0 !important;
+    margin-left: 0;
+    max-width: none;
   }
 }
