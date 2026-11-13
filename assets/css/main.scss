@@ -131,3 +131,13 @@ a {
 .page__title {
   font-size: 2em;
 }
+
+/* Prevent long sidebar links from being cut off */
+.author__urls li {
+  white-space: normal;
+}
+
+.author__urls li a {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
