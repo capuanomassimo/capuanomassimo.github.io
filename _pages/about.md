@@ -7,8 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-# Massimo Capuano
-
 PhD student in Economics and Finance at the **Università Cattolica del Sacro Cuore** in Milan.
 
 My research interests include **asset pricing, derivatives, sustainable finance and systemic risk**.
