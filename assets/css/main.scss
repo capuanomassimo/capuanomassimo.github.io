@@ -108,3 +108,8 @@ a {
 .page__content .header-link {
   display: none;
 }
+
+/* Hide the empty avatar area until a profile photo is added */
+.author__avatar {
+  display: none;
+}
