@@ -3,9 +3,6 @@
 
 /*
  * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
 
 @import
@@ -36,22 +33,13 @@
     "layout/archive",
     "layout/sidebar"
 ;
+
+
 /* ========================================
-   Personal website — custom style
+   Massimo Capuano — custom style
    ======================================== */
 
-/* Make the main content narrower and centered */
-.page {
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-/* Give the page more breathing room */
-.page__inner-wrap {
-  margin-top: 2em;
-}
-
-/* Clean, readable typography */
+/* Typography */
 html {
   font-size: 17px;
 }
@@ -60,7 +48,7 @@ body {
   line-height: 1.7;
 }
 
-/* Main title */
+/* Main page title */
 .page__title {
   font-size: 2.2em;
   font-weight: 600;
@@ -73,15 +61,16 @@ body {
   margin-bottom: 0.7em;
   font-size: 1.4em;
   font-weight: 600;
+  border-bottom: none;
 }
 
-/* Make links subtle */
+/* Links */
 a {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-/* Simplify the top navigation */
+/* Navigation */
 .masthead {
   border-bottom: none;
 }
@@ -90,51 +79,46 @@ a {
   background: transparent;
 }
 
-/* ========================================
-   Homepage layout refinements
-   ======================================== */
-
-/* Remove the lines below section headings */
-.page__content h2 {
-  border-bottom: none;
-}
-
-/* Make the content area slightly wider */
-.page {
-  max-width: 900px;
-}
-
 /* Remove permalink icons from headings */
 .page__content .header-link {
   display: none;
 }
 
-/* Hide the author avatar when no profile image is used */
-.sidebar .author__avatar {
-  display: none !important;
-}
-
+/* Hide the author avatar until a profile photo is added */
+.sidebar .author__avatar,
 .author__avatar {
   display: none !important;
 }
 
-/* Custom layout: bring page content closer to the sidebar */
+
+/* ========================================
+   Desktop layout
+   ======================================== */
+
 @media (min-width: 64em) {
 
+  /* Sidebar */
   .sidebar {
-    width: 220px;
+    width: 220px !important;
   }
 
+  /*
+   * Main content:
+   * Academic Pages normally adds a large gap.
+   * These rules make the content start directly
+   * after the sidebar.
+   */
   .page {
-    float: right;
-    width: calc(100% - 260px);
-    padding-left: 0;
-    padding-right: 2em;
+    float: left !important;
+    width: calc(100% - 270px) !important;
+    max-width: 1050px !important;
+    margin-left: 250px !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .page__inner-wrap {
-    max-width: 1100px;
-    margin-left: 0;
+    max-width: 100% !important;
+    margin-left: 0 !important;
   }
-
 }
