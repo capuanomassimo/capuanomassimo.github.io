@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome! I am a PhD student in Economics and Finance at the [Università Cattolica del Sacro Cuore](https://www.unicatt.it/) in Milan. My research interests include **asset pricing, derivatives, sustainable finance, and systemic risk**.
+Welcome! I am a PhD student in Economics and Finance at the [Università Cattolica del Sacro Cuore](https://www.unicatt.it/) in Milan. My research interests include asset pricing, derivatives, sustainable finance, and systemic risk.
 
 I hold an MSc in Banking and Finance from the [Università Cattolica del Sacro Cuore](https://www.unicatt.it/) and a BSc in Business Administration from the [University of Perugia](https://www.unipg.it/). During my studies, I was an exchange student at [Kozminski University](https://www.kozminski.edu.pl/) in Warsaw.
 
