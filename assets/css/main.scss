@@ -118,14 +118,21 @@ a {
   display: none !important;
 }
 
-/* Bring the main content closer to the sidebar */
+/* Custom desktop layout: reduce space between sidebar and content */
 @media (min-width: 64em) {
+
+  .sidebar {
+    width: 200px;
+  }
+
   .page {
-    width: calc(100% - 220px);
+    width: calc(100% - 200px);
+    padding-left: 1em;
     padding-right: 2em;
   }
 
   .page__inner-wrap {
-    max-width: 950px;
+    max-width: 1050px;
   }
+
 }
