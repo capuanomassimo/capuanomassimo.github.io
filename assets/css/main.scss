@@ -36,3 +36,61 @@
     "layout/archive",
     "layout/sidebar"
 ;
+/* ========================================
+   Personal website — custom style
+   ======================================== */
+
+/* Make the main content narrower and centered */
+.page {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Hide the default sidebar */
+.sidebar {
+  display: none;
+}
+
+/* Give the page more breathing room */
+.page__inner-wrap {
+  margin-top: 2em;
+}
+
+/* Clean, readable typography */
+html {
+  font-size: 17px;
+}
+
+body {
+  line-height: 1.7;
+}
+
+/* Main title */
+.page__title {
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* Section headings */
+.page__content h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.7em;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+/* Make links subtle */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Simplify the top navigation */
+.masthead {
+  border-bottom: none;
+}
+
+.greedy-nav {
+  background: transparent;
+}
