@@ -95,13 +95,12 @@ a {
    Desktop layout
    ======================================== */
 
-/* ========================================
-   Homepage layout – closer to Rob Williams' style
+//* ========================================
+   Homepage layout – final refinement
    ======================================== */
 
 @media (min-width: 64em) {
 
-  /* Main container */
   #main {
     max-width: 1400px;
     margin-left: auto;
@@ -110,21 +109,25 @@ a {
     padding-right: 2em;
   }
 
-  /* Left sidebar */
+  /* Sidebar */
   .sidebar {
-    width: 240px;
+    width: 230px;
   }
 
-  /* Main content */
+  /* Main content – closer to sidebar */
   .page {
     float: right;
-    width: calc(100% - 280px);
+    width: calc(100% - 250px);
     padding: 0;
   }
 
-  /* Prevent the content from becoming excessively wide */
   .page__inner-wrap {
-    max-width: 1000px;
+    max-width: 1050px;
     margin-left: 0;
   }
+}
+
+/* Slightly more balanced page title */
+.page__title {
+  font-size: 2em;
 }
