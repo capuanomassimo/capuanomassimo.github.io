@@ -117,3 +117,15 @@ a {
 .author__avatar {
   display: none !important;
 }
+
+/* Bring the main content closer to the sidebar */
+@media (min-width: 64em) {
+  .page {
+    width: calc(100% - 220px);
+    padding-right: 2em;
+  }
+
+  .page__inner-wrap {
+    max-width: 950px;
+  }
+}
