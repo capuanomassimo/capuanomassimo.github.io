@@ -94,3 +94,22 @@ a {
 .greedy-nav {
   background: transparent;
 }
+
+/* ========================================
+   Homepage layout refinements
+   ======================================== */
+
+/* Remove the lines below section headings */
+.page__content h2 {
+  border-bottom: none;
+}
+
+/* Make the content area slightly wider */
+.page {
+  max-width: 900px;
+}
+
+/* Remove permalink icons from headings */
+.page__content .header-link {
+  display: none;
+}
