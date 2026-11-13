@@ -109,7 +109,11 @@ a {
   display: none;
 }
 
-/* Hide the empty avatar area until a profile photo is added */
+/* Hide the author avatar when no profile image is used */
+.sidebar .author__avatar {
+  display: none !important;
+}
+
 .author__avatar {
-  display: none;
+  display: none !important;
 }
