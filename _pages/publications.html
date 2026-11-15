@@ -34,3 +34,11 @@ author_profile: true
     {% include archive-single.html %}
   {% endfor %}
 </section>
+
+{% assign theses = site.publications | where: "category", "theses" | sort: "date" | reverse %}
+<section class="publication-category" aria-labelledby="theses">
+  <h2 id="theses">Theses</h2>
+  {% for post in theses %}
+    {% include archive-single.html %}
+  {% endfor %}
+</section>
