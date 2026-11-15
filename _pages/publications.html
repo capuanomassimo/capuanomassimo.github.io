@@ -6,39 +6,55 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</div>
 {% endif %}
 
 {% include base_path %}
 
 {% assign journal_articles = site.publications | where: "category", "journal-articles" | sort: "date" | reverse %}
+{% assign journal_years = journal_articles | group_by_exp: "post", "post.date | date: '%Y'" | reverse %}
 <section class="publication-category" aria-labelledby="journal-articles">
   <h2 id="journal-articles">Journal Articles</h2>
-  {% for post in journal_articles %}
-    {% include archive-single.html %}
+  {% for year in journal_years %}
+    <h3 class="publication-year">{{ year.name }}</h3>
+    {% for post in year.items %}
+      {% include archive-single.html %}
+    {% endfor %}
   {% endfor %}
 </section>
 
 {% assign working_papers = site.publications | where: "category", "working-papers" | sort: "date" | reverse %}
+{% assign working_years = working_papers | group_by_exp: "post", "post.date | date: '%Y'" | reverse %}
 <section class="publication-category" aria-labelledby="working-papers">
   <h2 id="working-papers">Working Papers and Preprints</h2>
-  {% for post in working_papers %}
-    {% include archive-single.html %}
+  {% for year in working_years %}
+    <h3 class="publication-year">{{ year.name }}</h3>
+    {% for post in year.items %}
+      {% include archive-single.html %}
+    {% endfor %}
   {% endfor %}
 </section>
 
 {% assign conference_papers = site.publications | where: "category", "conference-papers" | sort: "date" | reverse %}
+{% assign conference_years = conference_papers | group_by_exp: "post", "post.date | date: '%Y'" | reverse %}
 <section class="publication-category" aria-labelledby="conference-papers">
   <h2 id="conference-papers">Conference Papers and Book Chapters</h2>
-  {% for post in conference_papers %}
-    {% include archive-single.html %}
+  {% for year in conference_years %}
+    <h3 class="publication-year">{{ year.name }}</h3>
+    {% for post in year.items %}
+      {% include archive-single.html %}
+    {% endfor %}
   {% endfor %}
 </section>
 
 {% assign theses = site.publications | where: "category", "theses" | sort: "date" | reverse %}
+{% assign thesis_years = theses | group_by_exp: "post", "post.date | date: '%Y'" | reverse %}
 <section class="publication-category" aria-labelledby="theses">
   <h2 id="theses">Theses</h2>
-  {% for post in theses %}
-    {% include archive-single.html %}
+  {% for year in thesis_years %}
+    <h3 class="publication-year">{{ year.name }}</h3>
+    {% for post in year.items %}
+      {% include archive-single.html %}
+    {% endfor %}
   {% endfor %}
 </section>
