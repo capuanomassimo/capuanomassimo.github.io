@@ -27,12 +27,16 @@
     {% endif %}
 
     <h2 class="archive__item-title" itemprop="headline">
-      {% if post.collection == 'publications' and post.paperurl %}
-        <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
-      {% elsif post.collection == 'publications' and post.link %}
-        <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
-      {% elsif post.collection == 'publications' %}
-        <span>{{ title }}</span>
+      {% if post.collection == 'publications' %}
+        <span class="publication-number">{{ include.number }}.</span>
+        {% if post.date %}<span class="publication-year-label">[{{ post.date | date: "%Y" }}]</span>{% endif %}
+        {% if post.paperurl %}
+          <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
+        {% elsif post.link %}
+          <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
+        {% else %}
+          <span>{{ title }}</span>
+        {% endif %}
       {% elsif post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
@@ -51,6 +55,7 @@
         {% if post.authors %}{{ post.authors }}{% endif %}
         {% if post.type %}{% if post.authors %} · {% endif %}{{ post.type }}{% endif %}
         {% if post.venue %} · {{ post.venue }}{% endif %}
+        {% if post.category == 'theses' and post.date %} · {{ post.date | date: "%B %Y" }}{% endif %}
       </p>
     {% elsif post.date %}
       <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
