@@ -143,59 +143,60 @@ a {
 }
 
 /* ========================================
-   Mobile refinement — preserve desktop
+   Mobile refinement — compact and readable
    ======================================== */
 
 @media screen and (max-width: 767px) {
   html {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   body {
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.58;
   }
 
   #main {
-    margin-top: 1.1em;
-    padding-left: 1.1em;
-    padding-right: 1.1em;
+    margin-top: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  /* Keep the author block compact and readable on phones. */
+  /* Stack the author information instead of squeezing it beside Follow. */
   .sidebar {
-    margin-top: 0.5em;
-    margin-bottom: 1.6em;
+    margin-top: 0.35rem;
+    margin-bottom: 1.2rem;
   }
 
   .author__content {
-    display: block;
-    width: auto;
+    display: block !important;
+    width: 100%;
     padding: 0;
     line-height: 1.35;
   }
 
   .sidebar .author__name {
-    margin: 0 0 0.25em;
-    font-size: 1.35rem;
+    margin: 0 0 0.2rem;
+    font-size: 1.15rem;
     line-height: 1.2;
   }
 
   .author__bio {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.45;
   }
 
   .author__urls-wrapper {
-    display: block;
-    margin-top: 0.75em;
+    display: block !important;
+    margin-top: 0.6rem;
   }
 
   .author__urls-wrapper > button {
     display: inline-block;
     margin: 0;
-    padding: 0.45em 0.85em;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.88rem;
   }
 
   .author__urls {
@@ -204,33 +205,33 @@ a {
     max-width: min(19rem, calc(100vw - 3rem));
   }
 
-  /* Reduce oversized headings and paragraph density. */
+  /* Bring the heading down from its desktop scale. */
   .page__title {
     margin-bottom: 0.55em;
-    font-size: clamp(1.85rem, 7vw, 2.25rem);
+    font-size: clamp(1.5rem, 5.2vw, 1.85rem);
     line-height: 1.15;
   }
 
   .page__content {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
 
   .page__content p,
   .page__content li {
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: 0.98rem;
+    line-height: 1.62;
   }
 
   .page__content p {
-    margin-bottom: 1.15em;
+    margin-bottom: 1.1em;
   }
 
   .page__content h2 {
     margin-top: 1.8em;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
-  /* Avoid oversized navigation labels on narrow screens. */
+  /* Keep the brand name from colliding with the mobile controls. */
   .greedy-nav {
     min-width: 0;
   }
@@ -243,16 +244,15 @@ a {
 
 @media screen and (max-width: 380px) {
   #main {
-    padding-left: 0.9em;
-    padding-right: 0.9em;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
   }
 
   .page__title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .sidebar .author__name {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 }
-
