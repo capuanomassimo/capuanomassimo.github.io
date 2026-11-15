@@ -28,7 +28,6 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.collection == 'publications' %}
-        <span class="publication-number">{{ include.number }}.</span>
         {% if post.date %}<span class="publication-year-label">[{{ post.date | date: "%Y" }}]</span>{% endif %}
         {% if post.paperurl %}
           <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
