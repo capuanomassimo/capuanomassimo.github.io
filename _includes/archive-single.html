@@ -42,7 +42,7 @@
           <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.collection == 'publications' %}
           {% if post.category == 'working-papers' or post.category == 'theses' %}
-            <p>{{ post.type | default: "Working Paper" }}, {{ post.date | default: "1900-01-01" | date: "%B %Y" }}</p>
+            <p>{{ post.type | default: "Working Paper" }}{% if post.date %}, {{ post.date | date: "%B %Y" }}{% endif %}</p>
           {% else %}
             <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
           {% endif %}
