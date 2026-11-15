@@ -650,23 +650,11 @@ html[data-theme="dark"] .publication-meta {
 }
 
 
-.publication-number {
-  display: inline-block;
-  min-width: 1.45rem;
-  color: #315f91;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
 .publication-year-label {
   margin-right: 0.35rem;
   color: #64748b;
   font-weight: 600;
   white-space: nowrap;
-}
-
-html[data-theme="dark"] .publication-number {
-  color: #9ec6f2;
 }
 
 html[data-theme="dark"] .publication-year-label {
