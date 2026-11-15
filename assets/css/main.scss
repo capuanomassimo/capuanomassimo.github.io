@@ -141,3 +141,118 @@ a {
   white-space: normal;
   overflow-wrap: break-word;
 }
+
+/* ========================================
+   Mobile refinement — preserve desktop
+   ======================================== */
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    line-height: 1.65;
+  }
+
+  #main {
+    margin-top: 1.1em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+  }
+
+  /* Keep the author block compact and readable on phones. */
+  .sidebar {
+    margin-top: 0.5em;
+    margin-bottom: 1.6em;
+  }
+
+  .author__content {
+    display: block;
+    width: auto;
+    padding: 0;
+    line-height: 1.35;
+  }
+
+  .sidebar .author__name {
+    margin: 0 0 0.25em;
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+
+  .author__bio {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .author__urls-wrapper {
+    display: block;
+    margin-top: 0.75em;
+  }
+
+  .author__urls-wrapper > button {
+    display: inline-block;
+    margin: 0;
+    padding: 0.45em 0.85em;
+    font-size: 0.9rem;
+  }
+
+  .author__urls {
+    right: auto;
+    left: 0;
+    max-width: min(19rem, calc(100vw - 3rem));
+  }
+
+  /* Reduce oversized headings and paragraph density. */
+  .page__title {
+    margin-bottom: 0.55em;
+    font-size: clamp(1.85rem, 7vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .page__content {
+    font-size: 1rem;
+  }
+
+  .page__content p,
+  .page__content li {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .page__content p {
+    margin-bottom: 1.15em;
+  }
+
+  .page__content h2 {
+    margin-top: 1.8em;
+    font-size: 1.3rem;
+  }
+
+  /* Avoid oversized navigation labels on narrow screens. */
+  .greedy-nav {
+    min-width: 0;
+  }
+
+  .greedy-nav .visible-links li:first-child a {
+    max-width: calc(100vw - 9rem);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  #main {
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+  }
+
+  .page__title {
+    font-size: 1.8rem;
+  }
+
+  .sidebar .author__name {
+    font-size: 1.25rem;
+  }
+}
+
