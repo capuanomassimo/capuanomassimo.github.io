@@ -143,7 +143,7 @@ a {
 }
 
 /* ========================================
-   Mobile refinement — compact and readable
+   Mobile layout — compact profile and typography
    ======================================== */
 
 @media screen and (max-width: 767px) {
@@ -152,20 +152,54 @@ a {
   }
 
   body {
-    font-size: 1rem;
-    line-height: 1.58;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* Shorter mobile header; keep the site name and controls on one line. */
+  .masthead__inner-wrap {
+    padding: 0.3rem 0.85rem;
+  }
+
+  .greedy-nav {
+    min-width: 0;
+  }
+
+  .greedy-nav a,
+  .greedy-nav #theme-toggle > button {
+    margin-left: 0.55rem;
+    margin-right: 0.55rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+
+  .greedy-nav .visible-links li:first-child a {
+    max-width: calc(100vw - 9rem);
+    margin-left: 0;
+    font-size: 1.05rem;
+    overflow-wrap: normal;
+  }
+
+  .greedy-nav > .greedy-nav__toggle {
+    height: 2.2rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
   }
 
   #main {
-    margin-top: 0.8rem;
+    margin-top: 0.85rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  /* Stack the author information instead of squeezing it beside Follow. */
+  /* The masthead already shows the author's name: don't repeat it here. */
   .sidebar {
-    margin-top: 0.35rem;
-    margin-bottom: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar .author__name {
+    display: none;
   }
 
   .author__content {
@@ -175,70 +209,76 @@ a {
     line-height: 1.35;
   }
 
-  .sidebar .author__name {
-    margin: 0 0 0.2rem;
-    font-size: 1.15rem;
-    line-height: 1.2;
-  }
-
   .author__bio {
     margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.45;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
+  /* Replace the oversized Follow dropdown with a quiet row of profile links. */
   .author__urls-wrapper {
     display: block !important;
-    margin-top: 0.6rem;
+    margin-top: 0.35rem;
+    cursor: auto;
   }
 
   .author__urls-wrapper > button {
-    display: inline-block;
-    margin: 0;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.88rem;
+    display: none !important;
   }
 
   .author__urls {
-    right: auto;
-    left: 0;
-    max-width: min(19rem, calc(100vw - 3rem));
+    display: flex !important;
+    position: static;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.8rem;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    z-index: auto;
   }
 
-  /* Bring the heading down from its desktop scale. */
+  .author__urls:before,
+  .author__urls:after {
+    display: none;
+  }
+
+  .author__urls li {
+    margin: 0;
+    white-space: normal;
+  }
+
+  .author__urls li a {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  /* Keep the page heading and body text in a restrained mobile scale. */
   .page__title {
-    margin-bottom: 0.55em;
-    font-size: clamp(1.5rem, 5.2vw, 1.85rem);
+    margin: 0 0 0.65rem;
+    font-size: 1.5rem;
     line-height: 1.15;
   }
 
-  .page__content {
-    font-size: 0.98rem;
-  }
-
+  .page__content,
   .page__content p,
   .page__content li {
-    font-size: 0.98rem;
-    line-height: 1.62;
+    font-size: 0.94rem;
+    line-height: 1.58;
   }
 
   .page__content p {
-    margin-bottom: 1.1em;
+    margin-bottom: 1rem;
   }
 
   .page__content h2 {
-    margin-top: 1.8em;
-    font-size: 1.25rem;
-  }
-
-  /* Keep the brand name from colliding with the mobile controls. */
-  .greedy-nav {
-    min-width: 0;
-  }
-
-  .greedy-nav .visible-links li:first-child a {
-    max-width: calc(100vw - 9rem);
-    overflow-wrap: anywhere;
+    margin-top: 1.7em;
+    font-size: 1.2rem;
   }
 }
 
@@ -248,11 +288,12 @@ a {
     padding-right: 0.85rem;
   }
 
-  .page__title {
-    font-size: 1.5rem;
+  .greedy-nav .visible-links li:first-child a {
+    max-width: calc(100vw - 8rem);
+    font-size: 0.98rem;
   }
 
-  .sidebar .author__name {
-    font-size: 1.1rem;
+  .page__title {
+    font-size: 1.4rem;
   }
 }
