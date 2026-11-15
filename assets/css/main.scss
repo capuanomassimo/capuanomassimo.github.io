@@ -606,14 +606,6 @@ html[data-theme="dark"] .site-nav__theme button:focus-visible {
   border-bottom: 1px solid #d8e0e9;
 }
 
-.publication-year {
-  margin: 1.35rem 0 0.65rem;
-  color: #315f91;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
 .publication-entry {
   margin: 0 0 0.9rem;
   padding: 0.1rem 0 0.85rem;
@@ -653,10 +645,30 @@ html[data-theme="dark"] .publication-entry {
   border-color: #333e4b;
 }
 
-html[data-theme="dark"] .publication-year {
+html[data-theme="dark"] .publication-meta {
+  color: #aab6c5;
+}
+
+
+.publication-number {
+  display: inline-block;
+  min-width: 1.45rem;
+  color: #315f91;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.publication-year-label {
+  margin-right: 0.35rem;
+  color: #64748b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .publication-number {
   color: #9ec6f2;
 }
 
-html[data-theme="dark"] .publication-meta {
+html[data-theme="dark"] .publication-year-label {
   color: #aab6c5;
 }
