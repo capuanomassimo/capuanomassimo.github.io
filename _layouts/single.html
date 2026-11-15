@@ -26,9 +26,8 @@ layout: default
     <div class="page__inner-wrap">
       {% if page.url == "/" %}
         <section class="mobile-profile" aria-label="Profile and contact information">
-          <p class="mobile-profile__eyebrow">ACADEMIC PROFILE · MILAN</p>
+          <h2 class="mobile-profile__name">{{ site.author.name }}</h2>
           <p class="mobile-profile__role">{{ site.author.bio }}</p>
-          <p class="mobile-profile__institution">{{ site.author.employer }}</p>
           <nav class="mobile-profile__links" aria-label="Contact and academic profiles">
             {% if site.author.email %}<a href="mailto:{{ site.author.email }}">Email</a>{% endif %}
             {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
