@@ -30,22 +30,22 @@ layout: default
           <p class="mobile-profile__role">{{ site.author.bio }}</p>
           <nav class="mobile-profile__links" aria-label="Contact and academic profiles">
             {% if site.author.email %}
-              <a href="mailto:{{ site.author.email }}"><i class="fas fa-envelope" aria-hidden="true"></i><span>Email</span></a>
+              <a class="mobile-profile__link mobile-profile__link--email" href="mailto:{{ site.author.email }}"><i class="fas fa-envelope" aria-hidden="true"></i><span>Email</span></a>
             {% endif %}
             {% if site.author.googlescholar %}
-              <a href="{{ site.author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i><span>Google Scholar</span></a>
+              <a class="mobile-profile__link mobile-profile__link--scholar" href="{{ site.author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i><span>Google Scholar</span></a>
             {% endif %}
             {% if site.author.orcid %}
-              <a href="{{ site.author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span></a>
+              <a class="mobile-profile__link mobile-profile__link--orcid" href="{{ site.author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span></a>
             {% endif %}
             {% if site.author.researchgate %}
-              <a href="{{ site.author.researchgate }}"><i class="fab fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span></a>
+              <a class="mobile-profile__link mobile-profile__link--researchgate" href="{{ site.author.researchgate }}"><i class="fab fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span></a>
             {% endif %}
             {% if site.author.github %}
-              <a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+              <a class="mobile-profile__link mobile-profile__link--github" href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
             {% endif %}
             {% if site.author.linkedin %}
-              <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+              <a class="mobile-profile__link mobile-profile__link--linkedin" href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
             {% endif %}
           </nav>
         </section>
