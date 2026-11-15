@@ -94,6 +94,8 @@ publication_category:
     title: 'Working Papers and Preprints'
   conference-papers:
     title: 'Conference Papers and Book Chapters'
+  theses:
+    title: 'Theses'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
