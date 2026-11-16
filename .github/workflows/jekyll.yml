@@ -51,6 +51,16 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Install PDF rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y weasyprint poppler-utils
+
+      - name: Generate and validate the CV PDF
+        run: |
+          python3 scripts/build_cv_pdf.py
+          python3 scripts/validate_academic_site.py
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
 
