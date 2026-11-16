@@ -65,7 +65,7 @@ jobs:
           grep -q "Student Representative" /tmp/cv.txt
           grep -q "Bloomberg Market Concepts" /tmp/cv.txt
           pages=$(pdfinfo _site/files/Massimo_Capuano_CV.pdf | awk '/^Pages:/ {print $2}')
-          test "$pages" -le 3
+          test "$pages" -le 2
           echo "CV generated: $pages A4 pages, $(wc -c < _site/files/Massimo_Capuano_CV.pdf) bytes"
           pdftoppm -png -r 120 _site/files/Massimo_Capuano_CV.pdf artifacts/cv-pdf-page
 
