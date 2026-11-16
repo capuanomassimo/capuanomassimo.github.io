@@ -187,19 +187,20 @@ try {
   await page.setViewportSize({ width: 1440, height: 1100 });
   const researchResponse = await page.goto(baseUrl + "/research/", { waitUntil: "networkidle" });
   if (!researchResponse || !researchResponse.ok()) throw new Error("Research page failed to load");
-  const areaCount = await page.locator(".research-area").count();
-  if (areaCount !== 5) throw new Error("Expected 5 research areas, found " + areaCount);
   const researchText = await page.locator("body").innerText();
-  for (const expected of [
-    "Asset Pricing and Derivatives",
-    "Digital Assets and Stablecoins",
-    "Financial Risk Management and Systemic Risk",
-    "Pensions and Intergenerational Welfare",
-    "Related work"
-  ]) {
-    if (!researchText.includes(expected)) throw new Error("Research page is missing: " + expected);
+  const expectedCurrentResearch = [
+    "My research interests include asset pricing, derivatives, sustainable finance, and systemic risk.",
+    "Research projects and working papers will be added here."
+  ];
+  for (const expected of expectedCurrentResearch) {
+    if (!researchText.includes(expected)) {
+      throw new Error("Research page no longer matches the approved current version: " + expected);
+    }
   }
-  if (researchText.includes("[1970]")) throw new Error("Research page contains an invalid year label.");
+  const areaCount = await page.locator(".research-area").count();
+  if (areaCount !== 0) {
+    throw new Error("The deferred Research redesign should not be present yet.");
+  }
   const researchLinks = await checkInternalLinks(page, "Research");
   await page.screenshot({ path: path.join(artifactRoot, "research-preview-desktop.png"), fullPage: true });
 
@@ -242,7 +243,7 @@ try {
   const summary = {
     pdfPath: outputPdf,
     pdfBytes: pdfStat.size,
-    researchAreas: areaCount,
+    researchRedesignDeferred: areaCount === 0,
     publicationSections: 4,
     internalLinksChecked: {
       about: homeLinks,
