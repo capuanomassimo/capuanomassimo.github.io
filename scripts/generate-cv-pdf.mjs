@@ -25,7 +25,7 @@ const contentTypes = {
 
 function resolveSitePath(urlPath) {
   const decoded = decodeURIComponent(urlPath);
-  const relativePath = decoded.replace(/^\\/+/, "");
+  const relativePath = decoded.replace(/^[/]+/, "");
   const resolvedPath = path.resolve(siteRoot, relativePath);
   if (resolvedPath !== siteRoot && !resolvedPath.startsWith(siteRoot + path.sep)) {
     throw new Error("Blocked path traversal");
