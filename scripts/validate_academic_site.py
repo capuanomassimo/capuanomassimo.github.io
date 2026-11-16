@@ -70,7 +70,7 @@ def main() -> int:
     checks = {
         "cv": [
             "Education", "Professional Experience", "Publications and Scholarly Work",
-            "Research Interests", "Honours and Awards", "Professional Development",
+            "Honours and Awards", "Professional Development",
             "Languages", "Technical Skills", "Massimo Capuano",
         ],
         "research": [
