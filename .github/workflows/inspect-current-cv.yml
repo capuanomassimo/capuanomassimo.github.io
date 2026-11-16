@@ -1,0 +1,26 @@
+name: Inspect current CV source
+
+on:
+  push:
+    branches:
+      - feature/academic-profile-system
+    paths:
+      - ".github/workflows/inspect-current-cv.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Extract existing CV text for migration
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          echo "===== CV PDF METADATA ====="
+          pdfinfo files/Massimo_Capuano_CV.pdf
+          echo "===== CV PDF TEXT ====="
+          pdftotext -layout files/Massimo_Capuano_CV.pdf -
