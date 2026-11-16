@@ -1,0 +1,36 @@
+---
+layout: single
+title: "Research"
+permalink: /research/
+author_profile: true
+description: "Research interests and projects in asset pricing, derivatives, sustainable finance and systemic risk."
+---
+
+<p class="research-intro">{{ site.data.research.intro }}</p>
+
+<div class="research-areas">
+  {% for area in site.data.research.areas %}
+    {% assign related_publications = site.publications | where_exp: "publication", "publication.research_areas contains area.id" | sort: "date" | reverse %}
+    <section class="research-area" id="{{ area.id }}">
+      <h2>{{ area.title }}</h2>
+      <p>{{ area.description }}</p>
+      {% if related_publications.size > 0 %}
+        <div class="research-related">
+          <h3>Related work</h3>
+          <ul>
+            {% for publication in related_publications %}
+              <li>
+                {% if publication.paperurl %}
+                  <a href="{{ publication.paperurl }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a>
+                {% else %}
+                  {{ publication.title }}
+                {% endif %}
+                <span class="research-publication-meta">[{{ publication.date | date: "%Y" }}]{% if publication.type %} · {{ publication.type }}{% endif %}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </section>
+  {% endfor %}
+</div>
