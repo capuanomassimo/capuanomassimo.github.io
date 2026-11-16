@@ -1,0 +1,31 @@
+areas:
+  - id: "asset-pricing-and-derivatives"
+    title: "Asset Pricing and Derivatives"
+    description: >-
+      Asset pricing, derivatives valuation, option pricing, and the use of
+      computational methods to study financial instruments and market risk.
+
+  - id: "financial-risk-and-systemic-risk"
+    title: "Financial Risk Management and Systemic Risk"
+    description: >-
+      Risk measurement, credit and market risk, internal-control systems,
+      financial fragility, and the channels through which institution-level
+      vulnerabilities may become systemic.
+
+  - id: "digital-assets-and-stablecoins"
+    title: "Digital Assets and Stablecoins"
+    description: >-
+      Stablecoin design, valuation frameworks, collateral structures, and the
+      relationship between digital-asset mechanisms and systemic risk.
+
+  - id: "sustainable-finance-and-geopolitical-risk"
+    title: "Sustainable Finance and Geopolitical Risk"
+    description: >-
+      The integration of geopolitical risk into sustainability frameworks and
+      the implications of macro-financial uncertainty for investment decisions.
+
+  - id: "pensions-and-intergenerational-welfare"
+    title: "Pensions and Intergenerational Welfare"
+    description: >-
+      Pension-system design, intergenerational arrangements, and the evolution
+      of welfare models.
