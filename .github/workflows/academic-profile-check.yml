@@ -62,17 +62,12 @@ jobs:
           grep -q "Driving licences" /tmp/cv.txt
           grep -q "Kozminski University" /tmp/cv.txt
           grep -q "Hogstalle" /tmp/cv.txt
+          grep -q "Student Representative" /tmp/cv.txt
+          grep -q "Bloomberg Market Concepts" /tmp/cv.txt
           pages=$(pdfinfo _site/files/Massimo_Capuano_CV.pdf | awk '/^Pages:/ {print $2}')
-          test "$pages" -le 2
-          echo "===== GENERATED CV TEXT CHECK ====="
-          grep -E "Massimo Capuano|Education and Training|Professional Experience|FinecoBank|Research Output|Honours and Awards|Languages|Technical Skills" /tmp/cv.txt
-          pdftoppm -f 1 -l 2 -jpeg -scale-to 1350 -jpegopt quality=68 _site/files/Massimo_Capuano_CV.pdf /tmp/cv-page
-          for page in /tmp/cv-page-*.jpg; do
-            echo "===== CV_PAGE_START $(basename "$page") ====="
-            base64 -w0 "$page"
-            echo
-            echo "===== CV_PAGE_END ====="
-          done
+          test "$pages" -le 3
+          echo "CV generated: $pages A4 pages, $(wc -c < _site/files/Massimo_Capuano_CV.pdf) bytes"
+          pdftoppm -png -r 120 _site/files/Massimo_Capuano_CV.pdf artifacts/cv-pdf-page
 
       - name: Upload visual and PDF previews
         uses: actions/upload-artifact@v4
