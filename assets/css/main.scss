@@ -1186,3 +1186,10 @@ html[data-theme="dark"] .research-publication-meta {
     break-inside: avoid;
   }
 }
+
+
+/* The global desktop footer is fixed; keep it in document flow on the long CV page. */
+.cv-main + .page__footer {
+  position: relative;
+  bottom: auto;
+}
