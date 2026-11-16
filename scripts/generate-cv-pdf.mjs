@@ -136,13 +136,23 @@ try {
     throw new Error("CV preview did not load the branch stylesheet: " + JSON.stringify(cvStyle));
   }
 
+  const cvDownloadLink = page.locator(".cv-download");
+  if (await cvDownloadLink.count() !== 1) throw new Error("CV download link is missing.");
+  const cvDownloadHref = await cvDownloadLink.getAttribute("href");
+  if (!cvDownloadHref || !cvDownloadHref.endsWith("/files/Massimo_Capuano_CV.pdf")) {
+    throw new Error("CV download link does not point to the generated PDF.");
+  }
+  if (await cvDownloadLink.getAttribute("download") !== "Massimo_Capuano_CV.pdf") {
+    throw new Error("CV download link must use the browser download attribute.");
+  }
+
   const cvText = await page.locator("body").innerText();
   const expectedCvContent = [
     "Massimo Capuano",
     "Education and Training",
     "FinecoBank",
     "Kozminski University",
-    "Research Output",
+    "Research",
     "Bloomberg Market Concepts",
     "English",
     "Spanish",
