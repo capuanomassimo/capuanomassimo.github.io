@@ -1,0 +1,64 @@
+name: Academic profile validation (preview branch)
+
+on:
+  push:
+    branches:
+      - feature/complete-academic-system
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1.328.0
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+          cache-version: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Build minified JavaScript
+        run: |
+          npm install -g uglify-js
+          uglifyjs assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js -c -m -o assets/js/main.min.js
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Install PDF rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y weasyprint poppler-utils
+
+      - name: Generate CV PDF
+        run: python3 scripts/build_cv_pdf.py
+
+      - name: Validate pages, local links and PDF
+        run: python3 scripts/validate_academic_site.py
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: academic-profile-preview
+          path: |
+            _site/cv/
+            _site/research/
+            _site/publications/
+            _site/files/Massimo_Capuano_CV.pdf
+          if-no-files-found: error
+          retention-days: 7
