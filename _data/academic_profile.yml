@@ -22,14 +22,14 @@ education:
   - title: "PhD Student in Economics and Finance"
     institution: "Università Cattolica del Sacro Cuore"
     location: "Milan, Italy"
-    dates: "28 October 2026 – Present"
+    dates: "28 October 2026 - Present"
     status: "In progress"
     level: "EQF Level 8"
 
   - title: "Master of Science in Banking and Finance"
     institution: "Università Cattolica del Sacro Cuore"
     location: "Milan, Italy"
-    dates: "9 September 2024 – 7 October 2026"
+    dates: "9 September 2024 - 7 October 2026"
     result: "110/110 cum laude"
     level: "EQF Level 7"
     major: "Trading and Risk Management"
@@ -39,7 +39,7 @@ education:
   - title: "Erasmus Exchange Programme"
     institution: "Kozminski University"
     location: "Warsaw, Poland"
-    dates: "23 September 2025 – 15 February 2026"
+    dates: "23 September 2025 - 15 February 2026"
     level: "EQF Level 7"
     courses:
       - "Portfolio Analysis (4/5)"
@@ -49,14 +49,14 @@ education:
       - "Innovation in Investment Appraisal (5/5)"
 
   - title: "Advanced Risk and Portfolio Management (ARPM) Bootcamp 2024"
-    institution: "ARPM – Advanced Risk and Portfolio Management"
+    institution: "ARPM - Advanced Risk and Portfolio Management"
     location: "New York, United States"
-    dates: "8–19 July 2024"
+    dates: "8-19 July 2024"
 
   - title: "Bachelor's Degree in Business Administration"
     institution: "Università degli Studi di Perugia"
     location: "Perugia, Italy"
-    dates: "9 September 2021 – 16 July 2024"
+    dates: "9 September 2021 - 16 July 2024"
     result: "110/110 cum laude"
     level: "EQF Level 6"
     thesis: "Credit default swap e gestione del rischio: il caso “London Whale” 10 anni dopo"
@@ -65,7 +65,7 @@ education:
   - title: "High School Diploma"
     institution: "Liceo Scientifico G. Galilei"
     location: "Terni, Italy"
-    dates: "9 September 2016 – 2 July 2021"
+    dates: "9 September 2016 - 2 July 2021"
     result: "100/100"
     level: "EQF Level 4"
     additional: >-
@@ -77,7 +77,7 @@ experience:
   - role: "Wealth Management & Private Banking Intern"
     organisation: "FinecoBank"
     location: "Italy"
-    dates: "April 2026 – Present"
+    dates: "April 2026 - Present"
     description: >-
       Operational support for advanced financial advisory, asset allocation,
       and wealth-planning activities for high-net-worth individuals (HNWIs).
@@ -92,9 +92,9 @@ experience:
       opportunities and portfolio-rebalancing options.
 
   - role: "Administrative and Academic Support Assistant"
-    organisation: "Università degli Studi di Perugia – Department of Economics"
+    organisation: "Università degli Studi di Perugia - Department of Economics"
     location: "Perugia, Italy"
-    dates: "October 2023 – December 2023"
+    dates: "October 2023 - December 2023"
     description: >-
       Selected through a merit-based ranking determined by academic average and
       completed university credits. Supported Academic Office activities,
@@ -114,9 +114,9 @@ awards:
       intergenerazionale: verso un nuovo modello di welfare”.
 
 academic_service:
-  - role: "Student Representative – UniSmart, Direzione Studenti"
+  - role: "Student Representative - UniSmart, Direzione Studenti"
     organisation: "Università degli Studi di Perugia"
-    dates: "1 September 2023 – 1 June 2025"
+    dates: "1 September 2023 - 1 June 2025"
     location: "Perugia, Italy"
     description: >-
       Represented students, listened to their needs, gathered feedback, and
@@ -125,7 +125,7 @@ academic_service:
     contributions:
       - "Member of the Department Board"
       - "Member of the Degree Course Board (inter-course)"
-      - "Member of the Joint Faculty–Student Committee"
+      - "Member of the Joint Faculty-Student Committee"
 
 leadership:
   - role: "Head of Asset Management"
@@ -137,8 +137,8 @@ leadership:
       of outstanding performance and results.
 
 interests:
-  - title: "Founder and Editor – Hogstalle Film Blog"
-    dates: "January 2024 – Present"
+  - title: "Founder and Editor - Hogstalle Film Blog"
+    dates: "January 2024 - Present"
     url: "https://hogstalle.wordpress.com/"
     description: >-
       Founded and coordinates an editorial project with a team of six writers,
@@ -165,8 +165,8 @@ skills:
   - "LaTeX and Beamer (basic)"
 
 driving_licences:
-  - "AM – Motorcycles"
-  - "B – Cars"
+  - "AM - Motorcycles"
+  - "B - Cars"
 
 certifications:
   - title: "McKinsey & Company Forward Program"
