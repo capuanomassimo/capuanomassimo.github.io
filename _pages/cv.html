@@ -145,6 +145,7 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
       <h2>Technical Skills</h2>
       <ul class="cv-compact-list">
         {% for item in academic.skills %}<li>{{ item }}</li>{% endfor %}
+        <li><strong>Driving licences:</strong> {{ academic.driving_licences | join: ", " }}</li>
       </ul>
     </section>
   </div>
@@ -165,6 +166,13 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
       {% for item in academic.leadership %}
         <div class="cv-entry cv-entry--compact">
           <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }} — {{ item.organisation }}</a>{% else %}{{ item.role }} — {{ item.organisation }}{% endif %}</h3>
+          <p class="cv-entry__meta">{{ item.dates }}</p>
+          <p>{{ item.description }}</p>
+        </div>
+      {% endfor %}
+      {% for item in academic.interests %}
+        <div class="cv-entry cv-entry--compact">
+          <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
           <p class="cv-entry__meta">{{ item.dates }}</p>
           <p>{{ item.description }}</p>
         </div>
