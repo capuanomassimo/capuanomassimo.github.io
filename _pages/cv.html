@@ -10,7 +10,6 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
 <article class="cv-document">
   <header class="cv-header">
     <div class="cv-header__identity">
-      <p class="cv-eyebrow">Economics · Finance · Research</p>
       <h1>{{ profile.name }}</h1>
       <p class="cv-role">{{ profile.role }}</p>
       <p class="cv-affiliation">{{ profile.institution }} · {{ profile.department }} · {{ profile.location }}</p>
@@ -21,7 +20,7 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
       {% if profile.links.google_scholar %}<a href="{{ profile.links.google_scholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>{% endif %}
       {% if profile.links.orcid %}<a href="{{ profile.links.orcid }}" target="_blank" rel="noopener noreferrer">ORCID</a>{% endif %}
       {% if profile.links.linkedin %}<a href="https://www.linkedin.com/in/{{ profile.links.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{% endif %}
-      <a class="cv-download screen-only" href="/files/Massimo_Capuano_CV.pdf" target="_blank" rel="noopener noreferrer">Download PDF <span aria-hidden="true">↗</span></a>
+      <a class="cv-download screen-only" href="{{ '/files/Massimo_Capuano_CV.pdf' | relative_url }}" download="Massimo_Capuano_CV.pdf" rel="noopener noreferrer">Download CV (PDF) <span aria-hidden="true">↓</span></a>
     </div>
   </header>
 
@@ -79,7 +78,7 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
   </section>
 
   <section class="cv-section">
-    <h2>Research Output</h2>
+    <h2>Research</h2>
     {% assign cv_publications = site.publications | sort: "date" | reverse %}
     <ul class="cv-publications">
       {% for item in cv_publications %}
@@ -136,7 +135,7 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
       <h2>Languages</h2>
       <ul class="cv-compact-list">
         {% for item in academic.languages %}
-          <li><strong>{{ item.language }}</strong> — {{ item.level }}{% if item.detail %}<span class="cv-entry__meta"> · {{ item.detail }}</span>{% endif %}</li>
+          <li><strong>{{ item.language }}</strong> - {{ item.level }}{% if item.detail %}<span class="cv-entry__meta"> · {{ item.detail }}</span>{% endif %}</li>
         {% endfor %}
       </ul>
     </section>
@@ -165,7 +164,7 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
       <h2>Leadership and Engagement</h2>
       {% for item in academic.leadership %}
         <div class="cv-entry cv-entry--compact">
-          <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }} — {{ item.organisation }}</a>{% else %}{{ item.role }} — {{ item.organisation }}{% endif %}</h3>
+          <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }} - {{ item.organisation }}</a>{% else %}{{ item.role }} - {{ item.organisation }}{% endif %}</h3>
           <p class="cv-entry__meta">{{ item.dates }}</p>
           <p>{{ item.description }}</p>
         </div>
