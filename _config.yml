@@ -18,74 +18,7 @@ url                      : https://capuanomassimo.github.io # The base hostname 
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "capuanomassimo/capuanomassimo.github.io"
 
-# Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
-# Site Author
-author:
-  avatar: ""
-  name: "Massimo Capuano"
-  pronouns: ""
-  bio: "PhD Student in Economics and Finance"
-  location: "Milan, Italy"
-  employer: "Università Cattolica del Sacro Cuore"
-  email: "massimo.capuano@unicatt.it"
-
-  # Academic profiles
-  googlescholar: "https://scholar.google.com/citations?hl=it&user=lBefy_EAAAAJ"
-
-  orcid: "https://orcid.org/0009-0001-6946-6293"
-  researchgate: "https://www.researchgate.net/profile/Massimo-Capuano?ev=hdr_xprf"
-
-  # Professional profiles
-  linkedin: "mascapuano"
-
-  # Code
-  github: "capuanomassimo"
-
-  # Academic websites not currently used
-  academia:
-  arxiv:
-  inspire-hep:
-  impactstory:
-  semantic:
-  ssrn:
-  pubmed:
-  scopus:
-  zotero:
-
-  # Other repositories not currently used
-  bitbucket:
-  codepen:
-  dribbble:
-  kaggle:
-  stackoverflow:
-
-  # Social media not currently used
-  artstation:
-  bluesky:
-  facebook:
-  flickr:
-  foursquare:
-  goodreads:
-  google_plus:
-  keybase:
-  instagram:
-  lastfm:
-  mastodon:
-  medium:
-  pinterest:
-  soundcloud:
-  steam:
-  telegram:
-  tumblr:
-  twitter:
-  vine:
-  weibo:
-  wikipedia:
-  xing:
-  youtube:
-  zhihu:
+# Author and professional contact information are maintained in _data/profile.yml.
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   journal-articles:
