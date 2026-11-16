@@ -6,6 +6,7 @@ import { chromium } from "playwright";
 const siteRoot = path.resolve("_site");
 const outputPdf = path.join(siteRoot, "files", "Massimo_Capuano_CV.pdf");
 const artifactRoot = path.resolve("artifacts");
+let baseUrl = "";
 
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
@@ -42,7 +43,13 @@ const server = http.createServer(async (request, response) => {
     } catch {
       if (!path.extname(filePath)) filePath = path.join(filePath, "index.html");
     }
-    const body = await fs.readFile(filePath);
+    let body = await fs.readFile(filePath);
+    if (path.extname(filePath).toLowerCase() === ".html") {
+      const html = body.toString("utf8")
+        .replaceAll("https://capuanomassimo.github.io", baseUrl)
+        .replaceAll("http://capuanomassimo.github.io", baseUrl);
+      body = Buffer.from(html, "utf8");
+    }
     response.writeHead(200, {
       "Content-Type": contentTypes[path.extname(filePath).toLowerCase()] ?? "application/octet-stream",
       "Cache-Control": "no-store"
@@ -64,7 +71,7 @@ await new Promise((resolve, reject) => {
 });
 const address = server.address();
 if (!address || typeof address === "string") throw new Error("Could not start local preview server");
-const baseUrl = "http://127.0.0.1:" + address.port;
+baseUrl = "http://127.0.0.1:" + address.port;
 
 let browser;
 try {
