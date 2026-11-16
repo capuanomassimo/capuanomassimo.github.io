@@ -96,6 +96,11 @@ html, body {
   padding-top: 0 !important;
 }
 
+/* Keep the bibliography together as a clearly headed section on page two. */
+.cv-section:nth-of-type(3) {
+  break-before: page !important;
+}
+
 .cv-section {
   margin-top: 3.4mm !important;
   break-inside: auto !important;
