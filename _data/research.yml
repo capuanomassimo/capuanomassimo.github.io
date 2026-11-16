@@ -1,0 +1,17 @@
+intro: "My research interests lie at the intersection of financial economics, quantitative methods and financial stability. The themes below are connected to the projects and scholarly work listed in Publications."
+areas:
+  - id: "asset-pricing"
+    title: "Asset Pricing and Financial Economics"
+    description: "Asset valuation, the behaviour of financial markets and the measurement of risk and return across financial instruments."
+
+  - id: "derivatives"
+    title: "Derivatives and Quantitative Finance"
+    description: "Derivative pricing and quantitative modelling, including options, simulation-based methods, numerical techniques and machine-learning approaches."
+
+  - id: "systemic-risk"
+    title: "Systemic Risk and Financial Stability"
+    description: "Financial vulnerabilities, risk transmission and the role of institutional, operational and market structures in financial stability."
+
+  - id: "sustainable-finance"
+    title: "Sustainable Finance and ESG"
+    description: "ESG frameworks and the interaction between sustainability assessment, geopolitical risk and financial decision-making."
