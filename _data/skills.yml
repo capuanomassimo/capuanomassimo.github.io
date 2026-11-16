@@ -1,0 +1,18 @@
+- group: "Quantitative and programming"
+  items:
+    - "Python"
+    - "R"
+    - "SQL"
+
+- group: "Financial and productivity tools"
+  items:
+    - "Microsoft Excel"
+    - "Microsoft PowerPoint"
+    - "Bloomberg"
+    - "Web-based research and information platforms"
+
+- group: "Research and communication"
+  items:
+    - "LaTeX"
+    - "Beamer"
+    - "Word processing and presentation software"
