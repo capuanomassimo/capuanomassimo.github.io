@@ -1,0 +1,162 @@
+profile:
+  name: "Massimo Capuano"
+  role: "PhD Student in Economics and Finance"
+  institution: "Università Cattolica del Sacro Cuore"
+  institution_url: "https://www.unicatt.it/"
+  department: "Campus di Milano"
+  location: "Milan, Italy"
+  email: "massimo.capuano@unicatt.it"
+  summary: >-
+    PhD student in Economics and Finance at Università Cattolica del Sacro Cuore
+    in Milan. His academic work spans asset pricing, derivatives, financial risk
+    management, systemic risk, sustainable finance, and digital assets.
+  links:
+    institutional: "https://publires.unicatt.it/it/persons/massimo-capuano/"
+    google_scholar: "https://scholar.google.com/citations?hl=it&user=lBefy_EAAAAJ"
+    orcid: "https://orcid.org/0009-0001-6946-6293"
+    researchgate: "https://www.researchgate.net/profile/Massimo-Capuano"
+    linkedin: "mascapuano"
+    github: "capuanomassimo"
+
+education:
+  - title: "PhD Student in Economics and Finance"
+    institution: "Università Cattolica del Sacro Cuore"
+    location: "Milan, Italy"
+    dates: "October 2026 – Present"
+    status: "In progress"
+    level: "EQF Level 8"
+
+  - title: "Master of Science in Banking and Finance"
+    institution: "Università Cattolica del Sacro Cuore"
+    location: "Milan, Italy"
+    dates: "September 2024 – October 2026"
+    result: "110/110 cum laude"
+    level: "EQF Level 7"
+    major: "Trading and Risk Management"
+    thesis: "Pricing Asian Options on Crude Oil: A Comparative Study Using Monte Carlo Simulation, Neural Networks, and Generative Adversarial Models"
+    supervisor: "Prof. Alice Pignatelli di Cerchiara"
+    additional: >-
+      Head of Asset Management at UCFA Finance Society; previously Associate in
+      the Risk Management desk and Director in Global Markets.
+
+  - title: "Erasmus Exchange Programme"
+    institution: "Kozminski University"
+    location: "Warsaw, Poland"
+    dates: "September 2025 – February 2026"
+    level: "EQF Level 7"
+    courses:
+      - "Portfolio Analysis"
+      - "Advanced Corporate Finance"
+      - "Corporate Governance"
+      - "Derivatives Valuation and Advanced Risk Management"
+      - "Innovation in Investment Appraisal"
+
+  - title: "Advanced Risk and Portfolio Management (ARPM) Bootcamp"
+    institution: "ARPM – Advanced Risk and Portfolio Management"
+    location: "New York, United States"
+    dates: "July 2024"
+
+  - title: "Bachelor's Degree in Business Administration"
+    institution: "Università degli Studi di Perugia"
+    location: "Perugia, Italy"
+    dates: "September 2021 – July 2024"
+    result: "110/110 cum laude"
+    level: "EQF Level 6"
+    thesis: "Credit default swap e gestione del rischio: il caso “London Whale” 10 anni dopo"
+    supervisor: "Prof. Paola Musile Tanzi"
+
+experience:
+  - role: "Wealth Management & Private Banking Intern"
+    organisation: "FinecoBank"
+    location: "Italy"
+    dates: "April 2026 – Present"
+    description: >-
+      Supports financial advisory, asset allocation, and wealth-planning
+      activities for high-net-worth individuals. Analyses and monitors client
+      investment portfolios using risk/return metrics and prepares performance
+      reports. Conducts comparative analysis and screening of mutual funds,
+      SICAVs, ETFs, certificates, and insurance solutions using financial
+      information platforms and proprietary software. Contributes to investment
+      proposals and documentation for committees and client meetings, while
+      monitoring market trends and global macroeconomic developments to identify
+      investment opportunities and portfolio-rebalancing options.
+
+  - role: "Administrative and Academic Support Assistant"
+    organisation: "Università degli Studi di Perugia – Department of Economics"
+    location: "Perugia, Italy"
+    dates: "October 2023 – December 2023"
+    description: >-
+      Selected for a merit-based part-time student collaboration. Supported
+      Academic Office operations, student-career administration, Erasmus Office
+      procedures, curriculum-internship processes, front-office information and
+      orientation services, study-plan enquiries, and the coordination of
+      graduation-session activities.
+
+awards:
+  - title: 'Finalist, “UniversiPA” Award'
+    organisation: "FORUM PA"
+    date: "June 2026"
+    description: >-
+      National competition focused on ideas to modernise public administration.
+      Reached the final stage as co-author of “Previdenza liquida e patto
+      intergenerazionale: verso un nuovo modello di welfare”.
+
+academic_service:
+  - role: "Student Representative – UniSmart, Direzione Studenti"
+    organisation: "Università degli Studi di Perugia"
+    dates: "September 2023 – June 2025"
+    location: "Perugia, Italy"
+    contributions:
+      - "Member of the Department Board"
+      - "Member of the Degree Course Board (inter-course)"
+      - "Member of the Joint Faculty–Student Committee"
+
+leadership:
+  - role: "Head of Asset Management"
+    organisation: "UCFA Finance Society"
+    dates: "During MSc studies"
+    description: >-
+      Student-society leadership role, following earlier responsibilities in
+      the Risk Management desk and Global Markets.
+
+  - role: "Founder and Editor"
+    organisation: "Hogstalle – Film Blog"
+    dates: "January 2024 – Present"
+    url: "https://hogstalle.wordpress.com/"
+    description: >-
+      Founded and coordinates an editorial project with a team of six writers,
+      overseeing reviews, essays, and critical writing on classic and
+      contemporary cinema.
+
+languages:
+  - language: "Italian"
+    level: "Native"
+  - language: "English"
+    level: "C1"
+    detail: "Listening, reading, writing, spoken production, and interaction"
+  - language: "Spanish"
+    level: "B1"
+    detail: "Listening, reading, writing, spoken production, and interaction"
+
+skills:
+  - "Python"
+  - "SQL"
+  - "R"
+  - "Microsoft Excel, Word, and PowerPoint"
+  - "LaTeX and document typesetting"
+  - "Financial data platforms and web-based research tools"
+
+certifications:
+  - title: "McKinsey & Company Forward Program"
+    date: "December 2024"
+    format: "Online"
+    url: "https://www.credly.com/badges/b4e361f0-030d-435a-ad7e-72c942a5bf2b/public_url"
+  - title: "Bloomberg Market Concepts"
+    organisation: "Bloomberg"
+    date: "January 2025"
+    format: "Blended"
+    url: "https://portal.bloombergforeducation.com/certificates/6tNjPTc7jWKtTxMXgA3isAj8"
+  - title: "Training Session"
+    organisation: "Generali"
+    date: "February 2025"
+    format: "In person"
