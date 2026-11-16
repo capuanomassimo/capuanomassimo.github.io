@@ -56,6 +56,17 @@ def check_page(path: str, required: list[str]) -> list[str]:
 
 
 def main() -> int:
+    source_roots = [ROOT / "_includes", ROOT / "_layouts", ROOT / "_pages"]
+    legacy_references = []
+    for source_root in source_roots:
+        for source_file in source_root.rglob("*"):
+            if source_file.is_file() and source_file.suffix in {".html", ".md"}:
+                if "site.author" in source_file.read_text(encoding="utf-8"):
+                    legacy_references.append(str(source_file.relative_to(ROOT)))
+    if legacy_references:
+        print("Legacy site.author references remain: " + ", ".join(legacy_references), file=sys.stderr)
+        return 1
+
     checks = {
         "cv": [
             "Education", "Professional Experience", "Publications and Scholarly Work",
