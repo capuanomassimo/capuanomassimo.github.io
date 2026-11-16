@@ -16,11 +16,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
-      - name: Extract existing CV text for migration
+      - name: Render scanned CV pages
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
-          echo "===== CV PDF METADATA ====="
-          pdfinfo files/Massimo_Capuano_CV.pdf
-          echo "===== CV PDF TEXT ====="
-          pdftotext -layout files/Massimo_Capuano_CV.pdf -
+          mkdir -p /tmp/cv-pages
+          pdftoppm -f 1 -l 4 -jpeg -scale-to 1500 -jpegopt quality=72 files/Massimo_Capuano_CV.pdf /tmp/cv-pages/page
+          for page in /tmp/cv-pages/*.jpg; do
+            echo "===== IMAGE_START $(basename "$page") ====="
+            base64 -w0 "$page"
+            echo
+            echo "===== IMAGE_END ====="
+          done
