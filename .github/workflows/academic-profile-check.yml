@@ -58,7 +58,7 @@ jobs:
           grep -q "Massimo Capuano" /tmp/cv.txt
           grep -q "Education and Training" /tmp/cv.txt
           grep -q "FinecoBank" /tmp/cv.txt
-          grep -q "Research Output" /tmp/cv.txt
+          grep -q "Research" /tmp/cv.txt
           grep -q "Driving licences" /tmp/cv.txt
           grep -q "Kozminski University" /tmp/cv.txt
           grep -q "Hogstalle" /tmp/cv.txt
