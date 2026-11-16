@@ -46,7 +46,7 @@ with base_path so the result is always absolute.
   {% assign seo_image_abs = "/images/og-image.png" | prepend: base_path %}
 {% endif %}
 
-{% assign seo_author = page.author | default: page.author[0] | default: site.author[0] %}
+{% assign seo_author = page.author | default: page.author[0] | default: site.data.profile.twitter %}
 {% if seo_author %}
   {% if seo_author.twitter %}
     {% assign seo_author_twitter = seo_author.twitter %}
