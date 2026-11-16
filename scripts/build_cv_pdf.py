@@ -248,7 +248,6 @@ def main() -> int:
         "Education",
         "Professional Experience",
         "Publications and Scholarly Work",
-        "Research Interests",
         "Honours and Awards",
         "Professional Development",
         "Languages",
