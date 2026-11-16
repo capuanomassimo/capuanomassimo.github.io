@@ -16,7 +16,12 @@ OUTPUT = SITE / "files" / "Massimo_Capuano_CV.pdf"
 PDF_STYLES = CSS(string="""
 @page {
   size: A4;
-  margin: 11mm 13mm 12mm;
+  margin: 11mm 13mm 13mm;
+  @bottom-right {
+    content: "Page " counter(page) " / " counter(pages);
+    color: #64748b;
+    font-size: 7pt;
+  }
 }
 
 html, body {
@@ -78,10 +83,13 @@ html, body {
 }
 
 .cv-contact {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 1mm 4mm !important;
+  display: block !important;
   font-size: 7.7pt !important;
+}
+
+.cv-contact a {
+  display: inline-block !important;
+  margin: 0 3mm 1mm 0 !important;
 }
 
 .cv-content {
