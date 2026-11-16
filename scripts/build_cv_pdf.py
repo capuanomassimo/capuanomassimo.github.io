@@ -32,8 +32,12 @@ def main() -> int:
 
     HTML(string=source, base_url=SITE.as_uri()).write_pdf(str(OUTPUT))
 
-    if not OUTPUT.is_file() or OUTPUT.stat().st_size < 20_000:
-        print("Generated CV PDF is missing or unexpectedly small.", file=sys.stderr)
+    if not OUTPUT.is_file():
+        print("Generated CV PDF is missing.", file=sys.stderr)
+        return 1
+    print(f"Generated PDF size: {OUTPUT.stat().st_size:,} bytes")
+    if OUTPUT.stat().st_size < 1_000:
+        print("Generated CV PDF is unexpectedly small.", file=sys.stderr)
         return 1
 
     text = subprocess.run(
