@@ -97,7 +97,7 @@ description: "Academic and professional curriculum vitae of Massimo Capuano."
             {% if item.authors %}{{ item.authors }}{% endif %}
             {% if item.type %}{% if item.authors %} · {% endif %}{{ item.type }}{% endif %}
             {% if item.venue %}{% if item.authors or item.type %} · {% endif %}{{ item.venue }}{% endif %}
-            {% if item.date %}{% if item.authors or item.type or item.venue %} · {% endif %}{{ item.display_year | default: item.date | date: "%Y" }}{% elsif item.year %} · {{ item.year }}{% endif %}
+            {% if item.display_year %}{% if item.authors or item.type or item.venue %} · {% endif %}{{ item.display_year }}{% elsif item.date %}{% if item.authors or item.type or item.venue %} · {% endif %}{{ item.date | date: "%Y" }}{% elsif item.year %} · {{ item.year }}{% endif %}
             {% if item.status %} · {{ item.status }}{% endif %}
           </p>
         </li>
