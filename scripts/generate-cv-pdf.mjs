@@ -147,7 +147,10 @@ try {
     "English",
     "Spanish",
     "Administrative and Academic Support Assistant",
-    "High School Diploma"
+    "High School Diploma",
+    "Driving licences",
+    "Hogstalle",
+    "Student Representative"
   ];
   for (const expected of expectedCvContent) {
     if (!cvText.includes(expected)) throw new Error("CV is missing expected content: " + expected);
@@ -186,6 +189,7 @@ try {
   ]) {
     if (!researchText.includes(expected)) throw new Error("Research page is missing: " + expected);
   }
+  if (researchText.includes("[1970]")) throw new Error("Research page contains an invalid year label.");
   const researchLinks = await checkInternalLinks(page, "Research");
   await page.screenshot({ path: path.join(artifactRoot, "research-preview-desktop.png"), fullPage: true });
 
