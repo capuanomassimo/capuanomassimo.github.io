@@ -56,16 +56,6 @@ education:
     location: "New York, United States"
     dates: "July 2024"
 
-  - title: "High School Diploma"
-    institution: "Liceo Scientifico G. Galilei"
-    location: "Terni, Italy"
-    result: "100/100"
-    level: "EQF Level 4"
-    additional: >-
-      Cambridge IGCSE certifications in Mathematics and Geography. Co-developed
-      and maintained the school website using Joomla and Java, including template
-      configuration, modules, and user permissions.
-
   - title: "Bachelor's Degree in Business Administration"
     institution: "Università degli Studi di Perugia"
     location: "Perugia, Italy"
@@ -75,6 +65,15 @@ education:
     thesis: "Credit default swap e gestione del rischio: il caso “London Whale” 10 anni dopo"
     supervisor: "Prof. Paola Musile Tanzi"
 
+  - title: "High School Diploma"
+    institution: "Liceo Scientifico G. Galilei"
+    location: "Terni, Italy"
+    result: "100/100"
+    level: "EQF Level 4"
+    additional: >-
+      Cambridge IGCSE certifications in Mathematics and Geography. Co-developed
+      and maintained the school website using Joomla and Java, including template
+      configuration, modules, and user permissions.
 experience:
   - role: "Wealth Management & Private Banking Intern"
     organisation: "FinecoBank"
