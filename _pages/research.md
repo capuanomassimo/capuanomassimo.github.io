@@ -8,7 +8,7 @@ description: "Research interests and projects in asset pricing, derivatives, fin
 {% assign profile = site.data.academic_profile.profile %}
 {% assign research_publications = site.publications | sort: "date" | reverse %}
 
-My research focuses on financial markets, asset pricing and risk. The themes below are connected to the publications and research outputs listed on this site: adding a research-area tag to a publication automatically connects it to the relevant topic.
+My research examines financial markets, asset pricing, and the measurement and management of financial risk. The topics below outline the main questions and areas that motivate my current work.
 
 {% for area in site.data.research.areas %}
 <section class="research-area" id="{{ area.id }}">
@@ -34,7 +34,7 @@ My research focuses on financial markets, asset pricing and risk. The themes bel
               {{ item.title }}
             {% endif %}
             <span class="research-publication-meta">
-              {% if item.date %}[{{ item.display_year | default: item.date | date: "%Y" }}]{% elsif item.year %}[{{ item.year }}]{% endif %}
+              {% if item.display_year %}[{{ item.display_year }}]{% elsif item.date %}[{{ item.date | date: "%Y" }}]{% elsif item.year %}[{{ item.year }}]{% endif %}
               {% if item.type %} · {{ item.type }}{% endif %}
             </span>
           </li>
