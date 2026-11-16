@@ -25,8 +25,8 @@ const contentTypes = {
 
 function resolveSitePath(urlPath) {
   const decoded = decodeURIComponent(urlPath);
-  const relativePath = decoded.replace(/^\/+/, "");
-  let resolvedPath = path.resolve(siteRoot, relativePath);
+  const relativePath = decoded.replace(/^\\/+/, "");
+  const resolvedPath = path.resolve(siteRoot, relativePath);
   if (resolvedPath !== siteRoot && !resolvedPath.startsWith(siteRoot + path.sep)) {
     throw new Error("Blocked path traversal");
   }
@@ -61,6 +61,33 @@ const server = http.createServer(async (request, response) => {
   }
 });
 
+async function checkNoHorizontalOverflow(page, label) {
+  const metrics = await page.evaluate(() => ({
+    bodyWidth: document.body.scrollWidth,
+    documentWidth: document.documentElement.scrollWidth,
+    viewportWidth: window.innerWidth
+  }));
+  if (Math.max(metrics.bodyWidth, metrics.documentWidth) > metrics.viewportWidth + 2) {
+    throw new Error(label + " has horizontal overflow: " + JSON.stringify(metrics));
+  }
+  return metrics;
+}
+
+async function checkInternalLinks(page, label) {
+  const hrefs = await page.locator("a[href]").evaluateAll(links =>
+    [...new Set(links.map(link => link.getAttribute("href"))
+      .filter(href => href && href.startsWith("/") && !href.startsWith("//")))]
+  );
+  const failures = [];
+  for (const href of hrefs) {
+    const url = new URL(href, baseUrl).toString();
+    const response = await page.request.get(url);
+    if (!response.ok()) failures.push(href + " -> HTTP " + response.status());
+  }
+  if (failures.length) throw new Error(label + " has broken internal links: " + failures.join("; "));
+  return hrefs.length;
+}
+
 await fs.access(path.join(siteRoot, "cv", "index.html"));
 await fs.mkdir(path.dirname(outputPdf), { recursive: true });
 await fs.mkdir(artifactRoot, { recursive: true });
@@ -83,10 +110,32 @@ try {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
 
+  const homeResponse = await page.goto(baseUrl + "/", { waitUntil: "networkidle" });
+  if (!homeResponse || !homeResponse.ok()) throw new Error("About page failed to load");
+  const homeText = await page.locator("body").innerText();
+  for (const expected of ["PhD Student in Economics and Finance", "Università Cattolica del Sacro Cuore", "Research", "Publications"]) {
+    if (!homeText.includes(expected)) throw new Error("About page is missing: " + expected);
+  }
+  const homeLinks = await checkInternalLinks(page, "About");
+  await page.screenshot({ path: path.join(artifactRoot, "about-preview-desktop.png"), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const homeMobile = await checkNoHorizontalOverflow(page, "About mobile");
+  await page.screenshot({ path: path.join(artifactRoot, "about-preview-mobile.png"), fullPage: true });
+
+  await page.setViewportSize({ width: 1440, height: 1100 });
   const cvResponse = await page.goto(baseUrl + "/cv/", { waitUntil: "networkidle" });
   if (!cvResponse || !cvResponse.ok()) throw new Error("CV page failed to load");
-
   await page.evaluate(() => document.fonts.ready);
+
+  const cvStyle = await page.evaluate(() => ({
+    css: [...document.styleSheets].map(sheet => sheet.href).filter(Boolean),
+    headerDisplay: getComputedStyle(document.querySelector(".cv-header")).display
+  }));
+  if (cvStyle.headerDisplay !== "grid" || !cvStyle.css.some(url => url.includes("/assets/css/main.css"))) {
+    throw new Error("CV preview did not load the branch stylesheet: " + JSON.stringify(cvStyle));
+  }
+
   const cvText = await page.locator("body").innerText();
   const expectedCvContent = [
     "Massimo Capuano",
@@ -97,24 +146,16 @@ try {
     "Bloomberg Market Concepts",
     "English",
     "Spanish",
-    "Administrative and Academic Support Assistant"
+    "Administrative and Academic Support Assistant",
+    "High School Diploma"
   ];
   for (const expected of expectedCvContent) {
     if (!cvText.includes(expected)) throw new Error("CV is missing expected content: " + expected);
   }
 
-  const desktopMetrics = await page.evaluate(() => ({
-    bodyWidth: document.body.scrollWidth,
-    viewportWidth: window.innerWidth
-  }));
-  if (desktopMetrics.bodyWidth > desktopMetrics.viewportWidth + 2) {
-    throw new Error("CV has desktop horizontal overflow: " + JSON.stringify(desktopMetrics));
-  }
-
-  await page.screenshot({
-    path: path.join(artifactRoot, "cv-preview-desktop.png"),
-    fullPage: true
-  });
+  const desktopMetrics = await checkNoHorizontalOverflow(page, "CV desktop");
+  const cvLinks = await checkInternalLinks(page, "CV");
+  await page.screenshot({ path: path.join(artifactRoot, "cv-preview-desktop.png"), fullPage: true });
 
   await page.emulateMedia({ media: "print" });
   await page.pdf({
@@ -124,34 +165,35 @@ try {
     preferCSSPageSize: true,
     displayHeaderFooter: false
   });
-
   await page.emulateMedia({ media: "screen" });
-  await page.setViewportSize({ width: 390, height: 844 });
-  const mobileMetrics = await page.evaluate(() => ({
-    bodyWidth: document.body.scrollWidth,
-    viewportWidth: window.innerWidth
-  }));
-  if (mobileMetrics.bodyWidth > mobileMetrics.viewportWidth + 2) {
-    throw new Error("CV has mobile horizontal overflow: " + JSON.stringify(mobileMetrics));
-  }
-  await page.screenshot({
-    path: path.join(artifactRoot, "cv-preview-mobile.png"),
-    fullPage: true
-  });
 
+  await page.setViewportSize({ width: 390, height: 844 });
+  const mobileMetrics = await checkNoHorizontalOverflow(page, "CV mobile");
+  await page.screenshot({ path: path.join(artifactRoot, "cv-preview-mobile.png"), fullPage: true });
+
+  await page.setViewportSize({ width: 1440, height: 1100 });
   const researchResponse = await page.goto(baseUrl + "/research/", { waitUntil: "networkidle" });
   if (!researchResponse || !researchResponse.ok()) throw new Error("Research page failed to load");
   const areaCount = await page.locator(".research-area").count();
   if (areaCount !== 5) throw new Error("Expected 5 research areas, found " + areaCount);
   const researchText = await page.locator("body").innerText();
-  for (const expected of ["Asset Pricing and Derivatives", "Digital Assets and Stablecoins", "Related work"]) {
+  for (const expected of [
+    "Asset Pricing and Derivatives",
+    "Digital Assets and Stablecoins",
+    "Financial Risk Management and Systemic Risk",
+    "Pensions and Intergenerational Welfare",
+    "Related work"
+  ]) {
     if (!researchText.includes(expected)) throw new Error("Research page is missing: " + expected);
   }
-  await page.screenshot({
-    path: path.join(artifactRoot, "research-preview.png"),
-    fullPage: true
-  });
+  const researchLinks = await checkInternalLinks(page, "Research");
+  await page.screenshot({ path: path.join(artifactRoot, "research-preview-desktop.png"), fullPage: true });
 
+  await page.setViewportSize({ width: 390, height: 844 });
+  const researchMobile = await checkNoHorizontalOverflow(page, "Research mobile");
+  await page.screenshot({ path: path.join(artifactRoot, "research-preview-mobile.png"), fullPage: true });
+
+  await page.setViewportSize({ width: 1440, height: 1100 });
   const publicationResponse = await page.goto(baseUrl + "/publications/", { waitUntil: "networkidle" });
   if (!publicationResponse || !publicationResponse.ok()) throw new Error("Publications page failed to load");
   const publicationText = await page.locator("body").innerText();
@@ -161,18 +203,23 @@ try {
     "Conference Papers and Book Chapters",
     "Theses",
     "ESG²: Integrating Geopolitical Risk into the Sustainability Framework",
-    "Credit default swap e gestione del rischio"
+    "Credit default swap e gestione del rischio",
+    "Pricing asian option on crude oil"
   ];
   for (const expected of expectedPublications) {
-    if (!publicationText.includes(expected)) throw new Error("Publications page is missing: " + expected);
+    if (!publicationText.toLowerCase().includes(expected.toLowerCase())) {
+      throw new Error("Publications page is missing: " + expected);
+    }
   }
   for (const excluded of ["Too Shared to Fail", "Modelling Volatility"]) {
     if (publicationText.includes(excluded)) throw new Error("Excluded item unexpectedly appears: " + excluded);
   }
-  await page.screenshot({
-    path: path.join(artifactRoot, "publications-preview.png"),
-    fullPage: true
-  });
+  const publicationLinks = await checkInternalLinks(page, "Publications");
+  await page.screenshot({ path: path.join(artifactRoot, "publications-preview-desktop.png"), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const publicationsMobile = await checkNoHorizontalOverflow(page, "Publications mobile");
+  await page.screenshot({ path: path.join(artifactRoot, "publications-preview-mobile.png"), fullPage: true });
 
   if (pageErrors.length) throw new Error("Browser errors: " + pageErrors.join("; "));
 
@@ -183,8 +230,20 @@ try {
     pdfBytes: pdfStat.size,
     researchAreas: areaCount,
     publicationSections: 4,
+    internalLinksChecked: {
+      about: homeLinks,
+      cv: cvLinks,
+      research: researchLinks,
+      publications: publicationLinks
+    },
     desktop: desktopMetrics,
-    mobile: mobileMetrics,
+    mobile: {
+      about: homeMobile,
+      cv: mobileMetrics,
+      research: researchMobile,
+      publications: publicationsMobile
+    },
+    stylesheetLoaded: cvStyle.headerDisplay === "grid",
     browserErrors: pageErrors.length
   };
   console.log(JSON.stringify(summary, null, 2));
