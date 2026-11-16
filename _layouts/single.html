@@ -26,26 +26,26 @@ layout: default
     <div class="page__inner-wrap">
       {% if page.url == "/" %}
         <section class="mobile-profile" aria-label="Profile and contact information">
-          <h2 class="mobile-profile__name">{{ site.author.name }}</h2>
-          <p class="mobile-profile__role">{{ site.author.bio }}</p>
+          <h2 class="mobile-profile__name">{{ site.data.profile.name }}</h2>
+          <p class="mobile-profile__role">{{ site.data.profile.bio }}</p>
           <nav class="mobile-profile__links" aria-label="Contact and academic profiles">
-            {% if site.author.email %}
-              <a class="mobile-profile__link mobile-profile__link--email" href="mailto:{{ site.author.email }}"><i class="fas fa-envelope" aria-hidden="true"></i><span>Email</span></a>
+            {% if site.data.profile.email %}
+              <a class="mobile-profile__link mobile-profile__link--email" href="mailto:{{ site.data.profile.email }}"><i class="fas fa-envelope" aria-hidden="true"></i><span>Email</span></a>
             {% endif %}
-            {% if site.author.googlescholar %}
-              <a class="mobile-profile__link mobile-profile__link--scholar" href="{{ site.author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i><span>Google Scholar</span></a>
+            {% if site.data.profile.googlescholar %}
+              <a class="mobile-profile__link mobile-profile__link--scholar" href="{{ site.data.profile.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i><span>Google Scholar</span></a>
             {% endif %}
-            {% if site.author.orcid %}
-              <a class="mobile-profile__link mobile-profile__link--orcid" href="{{ site.author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span></a>
+            {% if site.data.profile.orcid %}
+              <a class="mobile-profile__link mobile-profile__link--orcid" href="{{ site.data.profile.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i><span>ORCID</span></a>
             {% endif %}
-            {% if site.author.researchgate %}
-              <a class="mobile-profile__link mobile-profile__link--researchgate" href="{{ site.author.researchgate }}"><i class="fab fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span></a>
+            {% if site.data.profile.researchgate %}
+              <a class="mobile-profile__link mobile-profile__link--researchgate" href="{{ site.data.profile.researchgate }}"><i class="fab fa-researchgate" aria-hidden="true"></i><span>ResearchGate</span></a>
             {% endif %}
-            {% if site.author.github %}
-              <a class="mobile-profile__link mobile-profile__link--github" href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+            {% if site.data.profile.github %}
+              <a class="mobile-profile__link mobile-profile__link--github" href="https://github.com/{{ site.data.profile.github }}"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
             {% endif %}
-            {% if site.author.linkedin %}
-              <a class="mobile-profile__link mobile-profile__link--linkedin" href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+            {% if site.data.profile.linkedin %}
+              <a class="mobile-profile__link mobile-profile__link--linkedin" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
             {% endif %}
           </nav>
         </section>
