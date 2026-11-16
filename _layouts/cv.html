@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% include base_path %}
+{% assign profile = site.data.profile %}
+<div id="main" class="cv-shell" role="main">
+  <article class="cv-document">
+    <header class="cv-header">
+      <div class="cv-header-copy">
+        <p class="cv-eyebrow">Academic Curriculum Vitae</p>
+        <h1>{{ profile.name }}</h1>
+        <p class="cv-role">{{ profile.bio }}</p>
+        <p class="cv-affiliation">{{ profile.employer }} · {{ profile.location }}</p>
+        <div class="cv-contact">
+          {% if profile.email %}<a href="mailto:{{ profile.email }}">{{ profile.email }}</a>{% endif %}
+          {% if profile.googlescholar %}<a href="{{ profile.googlescholar }}">Google Scholar</a>{% endif %}
+          {% if profile.orcid %}<a href="{{ profile.orcid }}">ORCID</a>{% endif %}
+          {% if profile.linkedin %}<a href="https://www.linkedin.com/in/{{ profile.linkedin }}/">LinkedIn</a>{% endif %}
+          {% if profile.github %}<a href="https://github.com/{{ profile.github }}">GitHub</a>{% endif %}
+        </div>
+      </div>
+      <div class="cv-actions">
+        <a class="btn btn--primary" href="{{ base_path }}/files/Massimo_Capuano_CV.pdf">Download PDF</a>
+        <button class="btn" type="button" onclick="window.print()">Print</button>
+      </div>
+    </header>
+    <div class="cv-content">
+      {{ content }}
+    </div>
+  </article>
+</div>
