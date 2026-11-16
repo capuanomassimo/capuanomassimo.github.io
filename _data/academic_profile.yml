@@ -8,8 +8,8 @@ profile:
   email: "massimo.capuano@unicatt.it"
   summary: >-
     PhD student in Economics and Finance at Università Cattolica del Sacro Cuore
-    in Milan. His academic work spans asset pricing, derivatives, financial risk
-    management, systemic risk, sustainable finance, and digital assets.
+    in Milan. Research interests include asset pricing, derivatives, financial
+    risk management, systemic risk, sustainable finance, and digital assets.
   links:
     institutional: "https://publires.unicatt.it/it/persons/massimo-capuano/"
     google_scholar: "https://scholar.google.com/citations?hl=it&user=lBefy_EAAAAJ"
@@ -22,44 +22,41 @@ education:
   - title: "PhD Student in Economics and Finance"
     institution: "Università Cattolica del Sacro Cuore"
     location: "Milan, Italy"
-    dates: "October 2026 – Present"
+    dates: "28 October 2026 – Present"
     status: "In progress"
     level: "EQF Level 8"
 
   - title: "Master of Science in Banking and Finance"
     institution: "Università Cattolica del Sacro Cuore"
     location: "Milan, Italy"
-    dates: "September 2024 – October 2026"
+    dates: "9 September 2024 – 7 October 2026"
     result: "110/110 cum laude"
     level: "EQF Level 7"
     major: "Trading and Risk Management"
     thesis: "Pricing Asian Options on Crude Oil: A Comparative Study Using Monte Carlo Simulation, Neural Networks, and Generative Adversarial Models"
     supervisor: "Prof. Alice Pignatelli di Cerchiara"
-    additional: >-
-      Head of Asset Management at UCFA Finance Society; previously Associate in
-      the Risk Management desk and Director in Global Markets.
 
   - title: "Erasmus Exchange Programme"
     institution: "Kozminski University"
     location: "Warsaw, Poland"
-    dates: "September 2025 – February 2026"
+    dates: "23 September 2025 – 15 February 2026"
     level: "EQF Level 7"
     courses:
-      - "Portfolio Analysis"
-      - "Advanced Corporate Finance"
-      - "Corporate Governance"
-      - "Derivatives Valuation and Advanced Risk Management"
-      - "Innovation in Investment Appraisal"
+      - "Portfolio Analysis (4/5)"
+      - "Advanced Corporate Finance (5/5)"
+      - "Corporate Governance (5/5)"
+      - "Derivatives Valuation and Advanced Risk Management (4/5)"
+      - "Innovation in Investment Appraisal (5/5)"
 
-  - title: "Advanced Risk and Portfolio Management (ARPM) Bootcamp"
+  - title: "Advanced Risk and Portfolio Management (ARPM) Bootcamp 2024"
     institution: "ARPM – Advanced Risk and Portfolio Management"
     location: "New York, United States"
-    dates: "July 2024"
+    dates: "8–19 July 2024"
 
   - title: "Bachelor's Degree in Business Administration"
     institution: "Università degli Studi di Perugia"
     location: "Perugia, Italy"
-    dates: "September 2021 – July 2024"
+    dates: "9 September 2021 – 16 July 2024"
     result: "110/110 cum laude"
     level: "EQF Level 6"
     thesis: "Credit default swap e gestione del rischio: il caso “London Whale” 10 anni dopo"
@@ -68,53 +65,63 @@ education:
   - title: "High School Diploma"
     institution: "Liceo Scientifico G. Galilei"
     location: "Terni, Italy"
+    dates: "9 September 2016 – 2 July 2021"
     result: "100/100"
     level: "EQF Level 4"
     additional: >-
-      Cambridge IGCSE certifications in Mathematics and Geography. Co-developed
-      and maintained the school website using Joomla and Java, including template
-      configuration, modules, and user permissions.
+      Cambridge IGCSE certifications in Mathematics (0580) and Geography (0460).
+      Co-developed and maintained the school website using Joomla and Java,
+      including template configuration, modules, and user permissions.
+
 experience:
   - role: "Wealth Management & Private Banking Intern"
     organisation: "FinecoBank"
     location: "Italy"
     dates: "April 2026 – Present"
     description: >-
-      Supports financial advisory, asset allocation, and wealth-planning
-      activities for high-net-worth individuals. Analyses and monitors client
-      investment portfolios using risk/return metrics and prepares performance
-      reports. Conducts comparative analysis and screening of mutual funds,
-      SICAVs, ETFs, certificates, and insurance solutions using financial
-      information platforms and proprietary software. Contributes to investment
-      proposals and documentation for committees and client meetings, while
-      monitoring market trends and global macroeconomic developments to identify
-      investment opportunities and portfolio-rebalancing options.
+      Operational support for advanced financial advisory, asset allocation,
+      and wealth-planning activities for high-net-worth individuals (HNWIs).
+      Analysis and monitoring of client investment portfolios using risk/return
+      metrics and preparation of detailed performance reports. Comparative
+      analysis and screening of financial instruments, including mutual funds,
+      SICAVs, ETFs, certificates, and insurance solutions, through information
+      platforms and proprietary software. Support in preparing investment
+      proposals and documentation for committees and client meetings, ensuring
+      compliance with regulations and corporate guidelines. Monitoring of
+      market trends and global macroeconomic dynamics to identify tactical
+      opportunities and portfolio-rebalancing options.
 
   - role: "Administrative and Academic Support Assistant"
     organisation: "Università degli Studi di Perugia – Department of Economics"
     location: "Perugia, Italy"
     dates: "October 2023 – December 2023"
     description: >-
-      Selected for a merit-based part-time student collaboration. Supported
-      Academic Office operations, student-career administration, Erasmus Office
-      procedures, curriculum-internship processes, front-office information and
-      orientation services, study-plan enquiries, and the coordination of
-      graduation-session activities.
+      Selected through a merit-based ranking determined by academic average and
+      completed university credits. Supported Academic Office activities,
+      student-career administration, Erasmus Office procedures, curriculum and
+      internship processes, front-office information and orientation services,
+      study-plan enquiries, and the coordination of graduation-session
+      activities.
 
 awards:
-  - title: 'Finalist, “UniversiPA” Award'
+  - title: 'Finalist at the “UniversiPA” Award'
     organisation: "FORUM PA"
-    date: "June 2026"
+    date: "10 June 2026"
     description: >-
-      National competition focused on ideas to modernise public administration.
-      Reached the final stage as co-author of “Previdenza liquida e patto
+      Selected as a finalist in the national “UniversiPA” contest, aimed at
+      gathering innovative ideas to modernise public administration. Reached
+      the final stage as co-author of “Previdenza liquida e patto
       intergenerazionale: verso un nuovo modello di welfare”.
 
 academic_service:
   - role: "Student Representative – UniSmart, Direzione Studenti"
     organisation: "Università degli Studi di Perugia"
-    dates: "September 2023 – June 2025"
+    dates: "1 September 2023 – 1 June 2025"
     location: "Perugia, Italy"
+    description: >-
+      Represented students, listened to their needs, gathered feedback, and
+      promoted events and opportunities that enriched the university experience
+      and fostered personal and professional development.
     contributions:
       - "Member of the Department Board"
       - "Member of the Degree Course Board (inter-course)"
@@ -125,17 +132,18 @@ leadership:
     organisation: "UCFA Finance Society"
     dates: "During MSc studies"
     description: >-
-      Student-society leadership role, following earlier responsibilities in
-      the Risk Management desk and Global Markets.
+      Previously served as Associate in the Risk Management desk and Director
+      in Global Markets. Promoted to Head of Asset Management in recognition
+      of outstanding performance and results.
 
-  - role: "Founder and Editor"
-    organisation: "Hogstalle – Film Blog"
+interests:
+  - title: "Founder and Editor – Hogstalle Film Blog"
     dates: "January 2024 – Present"
     url: "https://hogstalle.wordpress.com/"
     description: >-
       Founded and coordinates an editorial project with a team of six writers,
-      overseeing reviews, essays, and critical writing on classic and
-      contemporary cinema.
+      overseeing the drafting and publication of reviews, essays, and critical
+      insights on classic and contemporary films.
 
 languages:
   - language: "Italian"
@@ -148,24 +156,29 @@ languages:
     detail: "Listening, reading, writing, spoken production, and interaction"
 
 skills:
-  - "Python"
+  - "Python (computer programming)"
+  - "Microsoft Office: Word, Excel, and PowerPoint"
+  - "Web browsers and email"
   - "SQL"
   - "R"
-  - "Microsoft Excel, Word, and PowerPoint"
-  - "LaTeX and document typesetting"
-  - "Financial data platforms and web-based research tools"
+  - "Word-processing software"
+  - "LaTeX and Beamer (basic)"
+
+driving_licences:
+  - "AM – Motorcycles"
+  - "B – Cars"
 
 certifications:
   - title: "McKinsey & Company Forward Program"
-    date: "December 2024"
+    date: "17 December 2024"
     format: "Online"
     url: "https://www.credly.com/badges/b4e361f0-030d-435a-ad7e-72c942a5bf2b/public_url"
   - title: "Bloomberg Market Concepts"
     organisation: "Bloomberg"
-    date: "January 2025"
+    date: "22 January 2025"
     format: "Blended"
     url: "https://portal.bloombergforeducation.com/certificates/6tNjPTc7jWKtTxMXgA3isAj8"
   - title: "Training Session"
     organisation: "Generali"
-    date: "February 2025"
+    date: "7 February 2025"
     format: "In person"
