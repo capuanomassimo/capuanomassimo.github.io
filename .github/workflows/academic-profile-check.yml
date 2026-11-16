@@ -1,0 +1,80 @@
+name: Validate academic profile system
+
+on:
+  push:
+    branches:
+      - feature/academic-profile-system
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: academic-profile-check
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Setup Ruby and Bundler
+        uses: ruby/setup-ruby@v1.328.0
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+          cache-version: 0
+
+      - name: Build required JavaScript bundle
+        run: |
+          npm install -g uglify-js
+          uglifyjs assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js -c -m -o assets/js/main.min.js
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --baseurl ""
+        env:
+          JEKYLL_ENV: production
+
+      - name: Install browser for CV rendering
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Generate CV PDF and inspect pages
+        run: |
+          node scripts/generate-cv-pdf.mjs
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          pdfinfo _site/files/Massimo_Capuano_CV.pdf
+          pdftotext -layout _site/files/Massimo_Capuano_CV.pdf /tmp/cv.txt
+          test -s /tmp/cv.txt
+          grep -q "Massimo Capuano" /tmp/cv.txt
+          grep -q "Education and Training" /tmp/cv.txt
+          grep -q "FinecoBank" /tmp/cv.txt
+          grep -q "Research" /tmp/cv.txt
+          grep -q "Driving licences" /tmp/cv.txt
+          grep -q "Kozminski University" /tmp/cv.txt
+          grep -q "Hogstalle" /tmp/cv.txt
+          grep -q "Student Representative" /tmp/cv.txt
+          grep -q "Bloomberg Market Concepts" /tmp/cv.txt
+          pages=$(pdfinfo _site/files/Massimo_Capuano_CV.pdf | awk '/^Pages:/ {print $2}')
+          test "$pages" -le 2
+          echo "CV generated: $pages A4 pages, $(wc -c < _site/files/Massimo_Capuano_CV.pdf) bytes"
+          pdftoppm -png -r 120 _site/files/Massimo_Capuano_CV.pdf artifacts/cv-pdf-page
+
+      - name: Upload visual and PDF previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: academic-profile-preview
+          path: |
+            _site/files/Massimo_Capuano_CV.pdf
+            artifacts/*.png
+          if-no-files-found: error
+          retention-days: 14

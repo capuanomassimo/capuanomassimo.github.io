@@ -51,6 +51,22 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Install browser for dynamic CV PDF
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Generate and validate dynamic CV PDF
+        run: |
+          node scripts/generate-cv-pdf.mjs
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          pdfinfo _site/files/Massimo_Capuano_CV.pdf
+          pdftotext -layout _site/files/Massimo_Capuano_CV.pdf /tmp/cv.txt
+          test -s /tmp/cv.txt
+          grep -q "Massimo Capuano" /tmp/cv.txt
+          grep -q "Education and Training" /tmp/cv.txt
+          grep -q "FinecoBank" /tmp/cv.txt
+          grep -q "Research" /tmp/cv.txt
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
 

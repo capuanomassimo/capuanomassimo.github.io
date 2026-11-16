@@ -1,0 +1,182 @@
+---
+layout: cv
+title: "Curriculum Vitae"
+permalink: /cv/
+description: "Academic and professional curriculum vitae of Massimo Capuano."
+---
+
+{% assign profile = site.data.academic_profile.profile %}
+{% assign academic = site.data.academic_profile %}
+<article class="cv-document">
+  <header class="cv-header">
+    <div class="cv-header__identity">
+      <h1>{{ profile.name }}</h1>
+      <p class="cv-role">{{ profile.role }}</p>
+      <p class="cv-affiliation">{{ profile.institution }} · {{ profile.department }} · {{ profile.location }}</p>
+    </div>
+    <div class="cv-header__contact">
+      <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+      {% if profile.links.institutional %}<a href="{{ profile.links.institutional }}" target="_blank" rel="noopener noreferrer">Institutional profile</a>{% endif %}
+      {% if profile.links.google_scholar %}<a href="{{ profile.links.google_scholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>{% endif %}
+      {% if profile.links.orcid %}<a href="{{ profile.links.orcid }}" target="_blank" rel="noopener noreferrer">ORCID</a>{% endif %}
+      {% if profile.links.linkedin %}<a href="https://www.linkedin.com/in/{{ profile.links.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{% endif %}
+      <a class="cv-download screen-only" href="{{ '/files/Massimo_Capuano_CV.pdf' | relative_url }}" download="Massimo_Capuano_CV.pdf" rel="noopener noreferrer">Download CV (PDF) <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
+
+  <section class="cv-section">
+    <h2>Academic Profile</h2>
+    <p>{{ profile.summary }}</p>
+    <p class="cv-research-interests"><strong>Research interests:</strong>
+      {% for area in site.data.research.areas %}{{ area.title }}{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}{% endfor %}
+    </p>
+  </section>
+
+  <section class="cv-section">
+    <h2>Education and Training</h2>
+    {% for item in academic.education %}
+      <div class="cv-entry">
+        <div class="cv-entry__heading">
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p class="cv-entry__institution">{{ item.institution }}{% if item.location %} · {{ item.location }}{% endif %}</p>
+          </div>
+          {% if item.dates %}<p class="cv-entry__date">{{ item.dates }}</p>{% endif %}
+        </div>
+        {% if item.result or item.level or item.status %}
+          <p class="cv-entry__meta">
+            {% if item.result %}{{ item.result }}{% endif %}
+            {% if item.level %}{% if item.result %} · {% endif %}{{ item.level }}{% endif %}
+            {% if item.status %}{% if item.result or item.level %} · {% endif %}{{ item.status }}{% endif %}
+          </p>
+        {% endif %}
+        {% if item.major %}<p><strong>Major:</strong> {{ item.major }}</p>{% endif %}
+        {% if item.thesis %}<p><strong>Thesis:</strong> {{ item.thesis }}</p>{% endif %}
+        {% if item.supervisor %}<p><strong>Supervisor:</strong> {{ item.supervisor }}</p>{% endif %}
+        {% if item.additional %}<p>{{ item.additional }}</p>{% endif %}
+        {% if item.courses %}
+          <p><strong>Selected courses:</strong> {{ item.courses | join: ", " }}.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section">
+    <h2>Professional Experience</h2>
+    {% for item in academic.experience %}
+      <div class="cv-entry">
+        <div class="cv-entry__heading">
+          <div>
+            <h3>{{ item.role }}</h3>
+            <p class="cv-entry__institution">{{ item.organisation }}{% if item.location %} · {{ item.location }}{% endif %}</p>
+          </div>
+          <p class="cv-entry__date">{{ item.dates }}</p>
+        </div>
+        <p>{{ item.description }}</p>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section">
+    <h2>Research</h2>
+    {% assign cv_publications = site.publications | sort: "date" | reverse %}
+    <ul class="cv-publications">
+      {% for item in cv_publications %}
+        <li>
+          <div class="cv-publication__title">
+            {% if item.paperurl %}
+              <a href="{{ item.paperurl }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+            {% elsif item.link %}
+              <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+            {% else %}
+              {{ item.title }}
+            {% endif %}
+          </div>
+          <p class="cv-entry__meta">
+            {% if item.authors %}{{ item.authors }}{% endif %}
+            {% if item.type %}{% if item.authors %} · {% endif %}{{ item.type }}{% endif %}
+            {% if item.venue %}{% if item.authors or item.type %} · {% endif %}{{ item.venue }}{% endif %}
+            {% if item.display_year %}{% if item.authors or item.type or item.venue %} · {% endif %}{{ item.display_year }}{% elsif item.date %}{% if item.authors or item.type or item.venue %} · {% endif %}{{ item.date | date: "%Y" }}{% elsif item.year %} · {{ item.year }}{% endif %}
+            {% if item.status %} · {{ item.status }}{% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <div class="cv-two-column">
+    <section class="cv-section">
+      <h2>Honours and Awards</h2>
+      {% for item in academic.awards %}
+        <div class="cv-entry">
+          <h3>{{ item.title }}</h3>
+          <p class="cv-entry__institution">{{ item.organisation }} · {{ item.date }}</p>
+          <p>{{ item.description }}</p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="cv-section">
+      <h2>Academic Service</h2>
+      {% for item in academic.academic_service %}
+        <div class="cv-entry">
+          <h3>{{ item.role }}</h3>
+          <p class="cv-entry__institution">{{ item.organisation }} · {{ item.dates }}</p>
+          <ul>
+            {% for contribution in item.contributions %}<li>{{ contribution }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </section>
+  </div>
+
+  <div class="cv-two-column">
+    <section class="cv-section">
+      <h2>Languages</h2>
+      <ul class="cv-compact-list">
+        {% for item in academic.languages %}
+          <li><strong>{{ item.language }}</strong> - {{ item.level }}{% if item.detail %}<span class="cv-entry__meta"> · {{ item.detail }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2>Technical Skills</h2>
+      <ul class="cv-compact-list">
+        {% for item in academic.skills %}<li>{{ item }}</li>{% endfor %}
+        <li><strong>Driving licences:</strong> {{ academic.driving_licences | join: ", " }}</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="cv-two-column">
+    <section class="cv-section">
+      <h2>Certifications and Professional Development</h2>
+      {% for item in academic.certifications %}
+        <div class="cv-entry cv-entry--compact">
+          <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+          <p class="cv-entry__meta">{% if item.organisation %}{{ item.organisation }} · {% endif %}{{ item.date }}{% if item.format %} · {{ item.format }}{% endif %}</p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="cv-section">
+      <h2>Leadership and Engagement</h2>
+      {% for item in academic.leadership %}
+        <div class="cv-entry cv-entry--compact">
+          <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.role }} - {{ item.organisation }}</a>{% else %}{{ item.role }} - {{ item.organisation }}{% endif %}</h3>
+          <p class="cv-entry__meta">{{ item.dates }}</p>
+          <p>{{ item.description }}</p>
+        </div>
+      {% endfor %}
+      {% for item in academic.interests %}
+        <div class="cv-entry cv-entry--compact">
+          <h3>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+          <p class="cv-entry__meta">{{ item.dates }}</p>
+          <p>{{ item.description }}</p>
+        </div>
+      {% endfor %}
+    </section>
+  </div>
+
+</article>

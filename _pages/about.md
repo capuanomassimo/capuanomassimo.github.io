@@ -6,11 +6,16 @@ redirect_from:
   - /about/
   - /about.html
 ---
+{% assign profile = site.data.academic_profile.profile %}
+{% assign education = site.data.academic_profile.education %}
+{% assign msc = education | where: "title", "Master of Science in Banking and Finance" | first %}
+{% assign bsc = education | where: "title", "Bachelor's Degree in Business Administration" | first %}
+{% assign erasmus = education | where: "title", "Erasmus Exchange Programme" | first %}
 
-Welcome! I am a PhD student in Economics and Finance at the [Università Cattolica del Sacro Cuore](https://www.unicatt.it/) in Milan. My research interests include asset pricing, derivatives, sustainable finance, and systemic risk.
+Welcome! I am a {{ profile.role }} at the [{{ profile.institution }}]({{ profile.institution_url }}) in {{ profile.location }}.
 
-I hold an MSc in Banking and Finance from the [Università Cattolica del Sacro Cuore](https://www.unicatt.it/) and a BSc in Business Administration from the [University of Perugia](https://www.unipg.it/). During my studies, I was an exchange student at [Kozminski University](https://www.kozminski.edu.pl/) in Warsaw.
+My research interests include {% for area in site.data.research.areas %}{{ area.title | downcase }}{% unless forloop.last %}, {% endunless %}{% endfor %}.
 
-I also completed the Advanced Risk and Portfolio Management (ARPM) Bootcamp at [New York University (NYU)](https://www.nyu.edu/).
+I hold a Master of Science in Banking and Finance from the [{{ msc.institution }}]({{ profile.institution_url }}) and a Bachelor's Degree in Business Administration from the [{{ bsc.institution }}](https://www.unipg.it/). I also completed an Erasmus exchange at [{{ erasmus.institution }}](https://www.kozminski.edu.pl/) and the Advanced Risk and Portfolio Management (ARPM) Bootcamp.
 
-You can find more information about my academic work on my [ResearchGate](http://www.researchgate.net/profile/Massimo-Capuano) profile and my [Institutional Page](https://publires.unicatt.it/it/persons/massimo-capuano/). My full [CV](https://drive.google.com/file/d/1H4Z4dAB6vGmxuJzzeezceXZ-PvGPmA0l/view) is also available online.
+You can explore my [research](/research/), [publications](/publications/) and [curriculum vitae](/cv/), or consult my [Google Scholar profile]({{ profile.links.google_scholar }}) and [institutional page]({{ profile.links.institutional }}).
