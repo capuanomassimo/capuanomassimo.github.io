@@ -14,7 +14,7 @@ redirect_from:
 
 Welcome! I am a {{ profile.role }} at the [{{ profile.institution }}]({{ profile.institution_url }}) in {{ profile.location }}.
 
-My research interests include {% for area in site.data.research.areas %}{{ area.title | downcase }}{% unless forloop.last %}, {% endunless %}{% endfor %}.
+My research interests include asset pricing, derivatives, risk management, and sustainable finance.
 
 I hold a Master of Science in Banking and Finance from the [{{ msc.institution }}]({{ profile.institution_url }}) and a Bachelor's Degree in Business Administration from the [{{ bsc.institution }}](https://www.unipg.it/). I also completed an Erasmus exchange at [{{ erasmus.institution }}](https://www.kozminski.edu.pl/) and the Advanced Risk and Portfolio Management (ARPM) Bootcamp.
 
